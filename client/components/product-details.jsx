@@ -9,7 +9,7 @@ export default class ProductDetails extends React.Component {
   }
 
   componentDidMount() {
-    fetch('api/products/3')
+    fetch('api/products/1')
       .then(res => res.json())
       // eslint-disable-next-line no-console
       .then(data => {
@@ -28,14 +28,14 @@ export default class ProductDetails extends React.Component {
       const currency = (product.price / 100).toFixed(2);
       return (
         <div className="container py-5">
-          <div className="container p-3 border rounded-lg shadow">
+          <div className="container p-4 border rounded-lg shadow">
             <div className="pb-3">
               <p>
                 <i className="fas fa-arrow-left pr-2"></i>Back to Catalog
               </p>
             </div>
             <div className="row pb-3">
-              <div className="col-lg-5 pb-3">
+              <div className="col-lg-5 p-3 text-center">
                 <img src={product.image} alt={product.name} className="fit-detail"/>
               </div>
               <div className="col-lg-7 pb-3">
