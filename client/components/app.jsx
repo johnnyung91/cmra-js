@@ -12,6 +12,18 @@ export default class App extends React.Component {
         params: {}
       }
     };
+    this.setView = this.setView.bind(this);
+  }
+
+  setView(name, params) {
+    // eslint-disable-next-line no-console
+    console.log(name, params);
+    // this.setState({
+    //   view: {
+    //     name: name,
+    //     params: params
+    //   }
+    // });
   }
 
   render() {
@@ -21,7 +33,7 @@ export default class App extends React.Component {
           <Header />
         </header>
         <main>
-          <ProductList/>
+          <ProductList setView={this.setView}/>
           <ProductDetails/>
         </main>
       </>

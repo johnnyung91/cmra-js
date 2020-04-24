@@ -1,10 +1,10 @@
 import React from 'react';
 
 function ProductListItem(props) {
-  const { product } = props;
+  const { product, setView } = props;
   const currency = (product.price / 100).toFixed(2);
   return (
-    <div className="col-md-6 col-lg-4 mb-4">
+    <div className="col-md-6 col-lg-4 mb-4" onClick={() => setView('details', product.productId)}>
       <div className="card mb-4 shadow-sm product">
         <img
           className="card-img-top py-3 fit-card"
