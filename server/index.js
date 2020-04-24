@@ -36,7 +36,7 @@ app.get('/api/products', (req, res, next) => {
 app.get('/api/products/:productId', (req, res, next) => {
   const { productId } = req.params;
   if (!parseInt(productId, 10)) {
-    next(new ClientError('"productId" must be a positive integer', 400));
+    return next(new ClientError('"productId" must be a positive integer', 400));
   }
 
   const sql = `
