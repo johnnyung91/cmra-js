@@ -16,14 +16,12 @@ export default class App extends React.Component {
   }
 
   setView(name, params) {
-    // eslint-disable-next-line no-console
-    console.log(name, params);
-    // this.setState({
-    //   view: {
-    //     name: name,
-    //     params: params
-    //   }
-    // });
+    this.setState({
+      view: {
+        name: name,
+        params: { productId: params }
+      }
+    });
   }
 
   render() {
