@@ -20,6 +20,7 @@ export default class ProductDetails extends React.Component {
 
   render() {
     const { product } = this.state;
+    const { setView } = this.props;
 
     if (!product) {
       return null;
@@ -28,7 +29,7 @@ export default class ProductDetails extends React.Component {
       return (
         <div className="container py-5">
           <div className="container p-4 border rounded-lg shadow">
-            <div className="pb-3 back-button">
+            <div className="pb-3 back-button" onClick={() => setView('catalog', {})}>
               <p>
                 <i className="fas fa-arrow-left pr-2"></i>Back to Catalog
               </p>
