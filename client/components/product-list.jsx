@@ -13,7 +13,6 @@ export default class ProductList extends React.Component {
   getProducts() {
     fetch('api/products')
       .then(res => res.json())
-      // eslint-disable-next-line no-console
       .then(data => this.setState({
         products: data
       }))
@@ -26,12 +25,19 @@ export default class ProductList extends React.Component {
 
   render() {
     const { products } = this.state;
+    const { setView } = this.props;
     return (
-      <div className="container">
+      <div className="container py-5">
         <div className="row">
           {
             products.map((product, index) => {
-              return (<ProductListItem key={product.productId} product={product} />);
+              return (
+                <ProductListItem
+                  key={product.productId}
+                  product={product}
+                  setView={setView}
+                />
+              );
             })
           }
         </div>

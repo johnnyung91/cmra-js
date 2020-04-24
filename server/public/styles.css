@@ -4,12 +4,23 @@
   padding: 0;
 }
 
-img {
+.fit-card {
   object-fit: contain;
-  width: 200px;
   height: 300px;
 }
 
 .product {
   height: 100%;
+  cursor: pointer;
+}
+
+.fit-detail {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.back-button {
+  cursor: pointer;
+  display: inline-block;
 }
