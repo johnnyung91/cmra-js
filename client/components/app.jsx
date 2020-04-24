@@ -16,7 +16,7 @@ export default class App extends React.Component {
           <Header />
         </header>
         <main>
-          <div className="deck py-5">
+          <div className="product-list py-5">
             <ProductList/>
           </div>
         </main>
