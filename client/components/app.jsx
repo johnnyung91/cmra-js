@@ -25,10 +25,10 @@ export default class App extends React.Component {
   }
 
   render() {
-    const { name } = this.state.view;
+    const { name, params } = this.state.view;
     let main;
     if (name === 'catalog') main = <ProductList setView={this.setView}/>;
-    if (name === 'details') main = <ProductDetails/>;
+    if (name === 'details') main = <ProductDetails params={params} setView={this.setView}/>;
 
     return (
       <>
