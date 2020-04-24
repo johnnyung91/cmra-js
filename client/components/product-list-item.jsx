@@ -7,7 +7,7 @@ function ProductListItem(props) {
     <div className="col-md-6 col-lg-4 mb-4">
       <div className="card mb-4 shadow-sm product">
         <img
-          className="card-img-top py-3"
+          className="card-img-top py-3 fit-card"
           src={product.image}
           alt={product.name}
         />
