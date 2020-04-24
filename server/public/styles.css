@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  object-fit: contain;
+  width: 200px;
+  height: 300px;
+}
+
+.product {
+  height: 100%;
+}
