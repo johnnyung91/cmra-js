@@ -9,12 +9,10 @@ export default class ProductDetails extends React.Component {
   }
 
   componentDidMount() {
-    fetch('api/products/1')
+    const { productId } = this.props.params;
+    fetch(`api/products/${productId}`)
       .then(res => res.json())
-      // eslint-disable-next-line no-console
       .then(data => {
-        // eslint-disable-next-line no-console
-        console.log(data);
         this.setState({ product: data });
       })
       .catch(err => console.error(err));
@@ -22,6 +20,7 @@ export default class ProductDetails extends React.Component {
 
   render() {
     const { product } = this.state;
+
     if (!product) {
       return null;
     } else {
@@ -29,7 +28,7 @@ export default class ProductDetails extends React.Component {
       return (
         <div className="container py-5">
           <div className="container p-4 border rounded-lg shadow">
-            <div className="pb-3">
+            <div className="pb-3 back-button">
               <p>
                 <i className="fas fa-arrow-left pr-2"></i>Back to Catalog
               </p>
