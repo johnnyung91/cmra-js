@@ -12,14 +12,20 @@ export default class ProductDetails extends React.Component {
     fetch('api/products/1')
       .then(res => res.json())
       // eslint-disable-next-line no-console
-      .then(data => console.log(data))
+      .then(data => {
+        // eslint-disable-next-line no-console
+        console.log(data);
+        this.setState({ product: data });
+      })
       .catch(err => console.error(err));
   }
 
   render() {
-    return (
-      null
-    );
+    const { product } = this.state;
+    if (!product) return null;
+    else {
+      return <h1>Hello World</h1>;
+    }
   }
 
 }
