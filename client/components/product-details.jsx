@@ -31,12 +31,16 @@ export default class ProductDetails extends React.Component {
           <div className="container p-4 border rounded-lg shadow">
             <div className="pb-3 back-button" onClick={() => setView('catalog', {})}>
               <p>
-                <i className="fas fa-arrow-left pr-2"></i>Back to Catalog
+                <i className="fas fa-arrow-left pr-2"></i>
+                Back to Catalog
               </p>
             </div>
             <div className="row pb-3">
               <div className="col-lg-5 p-3 text-center">
-                <img src={product.image} alt={product.name} className="fit-detail"/>
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="fit-detail"/>
               </div>
               <div className="col-lg-7 pb-3">
                 <h3>{product.name}</h3>
