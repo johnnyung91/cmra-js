@@ -13,13 +13,6 @@ app.use(sessionMiddleware);
 
 app.use(express.json());
 
-// delete?
-// app.get('/api/health-check', (req, res, next) => {
-//   db.query('select \'successfully connected\' as "message"')
-//     .then(result => res.json(result.rows[0]))
-//     .catch(err => next(err));
-// });
-
 // view products back end
 app.get('/api/products', (req, res, next) => {
   const sql = `
@@ -39,14 +32,34 @@ app.get('/api/products', (req, res, next) => {
     .catch(err => next(err));
 });
 
+// View product details by productId
 app.get('/api/products/:productId', (req, res, next) => {
   const { productId } = req.params;
   if (!parseInt(productId, 10)) {
-    return res.status(400).json({
-      error: '"productId" must be a positive integer'
-    });
+    next(new ClientError('"productId" must be a positive integer', 400));
   }
 
+  const sql = `
+  select "productId",
+    "name",
+    "price",
+    "image",
+    "shortDescription",
+    "longDescription"
+  from "products"
+  where "productId" = $1
+  `;
+
+  db.query(sql, [productId])
+    .then(result => {
+      const product = result.rows[0];
+      if (!product) {
+        next(new ClientError(`Cannot find grade with "productId" ${productId}`, 404));
+      } else {
+        res.json(product);
+      }
+    })
+    .catch(err => next(err));
 });
 
 app.use('/api', (req, res, next) => {
