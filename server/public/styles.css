@@ -15,7 +15,6 @@ h6 {
 
 .product {
   height: 100%;
-  cursor: pointer;
 }
 
 .fit-detail {
@@ -24,7 +23,6 @@ h6 {
   height: 100%;
 }
 
-.back-button {
+.pointer {
   cursor: pointer;
-  display: inline-block;
 }

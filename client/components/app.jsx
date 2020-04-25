@@ -31,16 +31,17 @@ export default class App extends React.Component {
   }
 
   getCartItems() {
-    fetch('api/cart')
+    fetch('/api/cart')
       .then(res => res.json())
-      .then(data => this.setState({ // potenially put dummy code?
-        cart: data
+      .then(itemsInCart => this.setState({
+        cart: itemsInCart
       }))
       .catch(err => console.error(err));
   }
 
   render() {
-    const { name, params } = this.state.view;
+    const { name, params, cart } = this.state.view;
+
     let main;
     if (name === 'catalog') main = <ProductList setView={this.setView}/>;
     if (name === 'details') main = <ProductDetails params={params} setView={this.setView}/>;
@@ -48,7 +49,7 @@ export default class App extends React.Component {
     return (
       <>
         <header>
-          <Header />
+          <Header cartItemCount={cart}/>
         </header>
         <main>
           {main}

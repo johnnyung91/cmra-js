@@ -29,7 +29,7 @@ export default class ProductDetails extends React.Component {
       return (
         <div className="container py-5">
           <div className="container p-4 border rounded-lg shadow">
-            <div className="pb-3 back-button" onClick={() => setView('catalog', {})}>
+            <div className="d-inline-block pb-3 pointer d-" onClick={() => setView('catalog', {})}>
               <p>
                 <i className="fas fa-arrow-left pr-2"></i>
                 Back to Catalog
