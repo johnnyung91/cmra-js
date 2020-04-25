@@ -83,6 +83,7 @@ app.post('/api/cart', (req, res, next) => {
   const values = [productId];
 
   db.query(sql, values)
+    // FIRST THEN
     .then(result => {
       if (!result.rows[0]) throw new ClientError('productId does not exist', 400);
       const { price } = result.rows[0]; // value of price
@@ -98,9 +99,12 @@ app.post('/api/cart', (req, res, next) => {
             cartId: cartId,
             price: price
           };
+          // eslint-disable-next-line no-console
+          console.log(cartObject);
           return cartObject;
         });
     })
+    // SECOND THEN
     .catch(err => next(err));
 });
 
