@@ -117,8 +117,24 @@ app.post('/api/cart', (req, res, next) => {
     })
     // THIRD THEN
     .then(result => {
-      // eslint-disable-next-line no-console
-      console.log(result.rows[0]);
+      const { cartItemId } = result.rows[0];
+      const sql = `
+        select "c"."cartItemId",
+          "c"."price",
+          "p"."productId",
+          "p"."image",
+          "p"."name",
+          "p"."shortDescription"
+        from "cartItems" as "c"
+        join "products" as "p" using ("productId")
+        where "c"."cartItemId" = $1
+      `;
+      const values = [cartItemId];
+      return db.query(sql, values)
+        .then(result => {
+          const cartItem = result.rows[0];
+          res.status(201).json(cartItem);
+        });
     })
     .catch(err => next(err));
 });
