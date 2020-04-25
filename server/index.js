@@ -84,27 +84,27 @@ app.post('/api/cart', (req, res, next) => {
 
   db.query(sql, values)
     // FIRST THEN
-    .then(result => {
-      if (!result.rows[0]) throw new ClientError('productId does not exist', 400);
-      const { price } = result.rows[0]; // value of price
+    .then(getPriceResult => {
+      if (!getPriceResult.rows[0]) throw new ClientError('productId does not exist', 400);
+      const { price } = getPriceResult.rows[0]; // gets value of price
       const sql = `
         insert into "carts" ("cartId", "createdAt")
         values (default, default)
         returning "cartId"
       `;
       return db.query(sql)
-        .then(result => {
-          const { cartId } = result.rows[0]; // value of cartId
-          const cartObject = {
+        .then(getCartResult => {
+          const { cartId } = getCartResult.rows[0]; // gets value of cartId
+          const cartResult = { // creating a cartResult in the shape of an object
             cartId: cartId,
             price: price
           };
-          return cartObject;
+          return cartResult;
         });
     })
     // SECOND THEN
-    .then(result => {
-      const { cartId, price } = result;
+    .then(createCartItemResult => {
+      const { cartId, price } = createCartItemResult; // cartId and price from previous step
       req.session.cartId = cartId;
 
       const sql = `
@@ -113,11 +113,11 @@ app.post('/api/cart', (req, res, next) => {
         returning "cartItemId"
       `;
       const values = [cartId, productId, price];
-      return db.query(sql, values);
+      return db.query(sql, values); // creating a cartItemResult
     })
     // THIRD THEN
-    .then(result => {
-      const { cartItemId } = result.rows[0];
+    .then(getCartItemResult => {
+      const { cartItemId } = getCartItemResult.rows[0]; // gets cartItemId from cartItemResult
       const sql = `
         select "c"."cartItemId",
           "c"."price",
@@ -131,7 +131,7 @@ app.post('/api/cart', (req, res, next) => {
       `;
       const values = [cartItemId];
       return db.query(sql, values)
-        .then(result => {
+        .then(result => { // send final cartItem as a response
           const cartItem = result.rows[0];
           res.status(201).json(cartItem);
         });
