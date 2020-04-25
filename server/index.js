@@ -80,8 +80,8 @@ app.get('/api/cart', (req, res, next) => {
     `;
     const values = [req.session.cartId];
     db.query(sql, values)
-      .then(result => {
-        const cartItem = result.rows[0];
+      .then(cartResult => {
+        const cartItem = cartResult.rows[0];
         res.json(cartItem);
       });
   }
