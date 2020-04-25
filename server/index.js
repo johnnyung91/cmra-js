@@ -104,8 +104,8 @@ app.post('/api/cart', (req, res, next) => {
     })
     // SECOND THEN
     .then(result => {
-      // eslint-disable-next-line no-console
-      console.log(result);
+      req.session.cartId = result.cartId;
+      // console.log(req.session);
     })
     .catch(err => next(err));
 });
