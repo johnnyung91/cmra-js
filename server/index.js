@@ -115,6 +115,11 @@ app.post('/api/cart', (req, res, next) => {
       const values = [cartId, productId, price];
       return db.query(sql, values);
     })
+    // THIRD THEN
+    .then(result => {
+      // eslint-disable-next-line no-console
+      console.log(result.rows[0]);
+    })
     .catch(err => next(err));
 });
 
