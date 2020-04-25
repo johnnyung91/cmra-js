@@ -64,7 +64,27 @@ app.get('/api/products/:productId', (req, res, next) => {
 
 // GET endpoint for cart
 app.get('/api/cart', (req, res, next) => {
-  res.json([]);
+  if (!req.session.cartId) {
+    res.json([]);
+  } else {
+    const sql = `
+    select "c"."cartItemId",
+      "c"."price",
+      "p"."productId",
+      "p"."image",
+      "p"."name",
+      "p"."shortDescription"
+    from "cartItems" as "c"
+    join "products" as "p" using ("productId")
+    where "c"."cartId" = $1
+    `;
+    const values = [req.session.cartId];
+    db.query(sql, values)
+      .then(result => {
+        const cartItem = result.rows[0];
+        res.json(cartItem);
+      });
+  }
 });
 
 // POST endpoint for cart
