@@ -79,28 +79,34 @@ app.post('/api/cart', (req, res, next) => {
     from "products"
     where "productId" = $1
   `;
-
   const values = [productId];
-
   db.query(sql, values)
     // FIRST THEN
     .then(getPriceResult => {
       if (!getPriceResult.rows[0]) throw new ClientError('productId does not exist', 400);
       const { price } = getPriceResult.rows[0]; // gets value of price
-      const sql = `
-        insert into "carts" ("cartId", "createdAt")
-        values (default, default)
-        returning "cartId"
-      `;
-      return db.query(sql)
-        .then(getCartResult => {
-          const { cartId } = getCartResult.rows[0]; // gets value of cartId
-          const cartResult = { // creating a cartResult in the shape of an object
-            cartId: cartId,
-            price: price
-          };
-          return cartResult;
-        });
+      if (req.session.cartId) {
+        const cartResult = {
+          cartId: req.session.cartId,
+          price: price
+        };
+        return cartResult; // creating a cartResult if req.session.cartId exists
+      } else {
+        const sql = `
+          insert into "carts" ("cartId", "createdAt")
+          values (default, default)
+          returning "cartId"
+        `;
+        return db.query(sql)
+          .then(getCartResult => {
+            const { cartId } = getCartResult.rows[0]; // gets value of cartId
+            const cartResult = {
+              cartId: cartId,
+              price: price
+            };
+            return cartResult; // creating a cartResult if req.sessions.cartId doesnt exist
+          });
+      }
     })
     // SECOND THEN
     .then(createCartItemResult => {
