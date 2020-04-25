@@ -99,12 +99,14 @@ app.post('/api/cart', (req, res, next) => {
             cartId: cartId,
             price: price
           };
-          // eslint-disable-next-line no-console
-          console.log(cartObject);
           return cartObject;
         });
     })
     // SECOND THEN
+    .then(result => {
+      // eslint-disable-next-line no-console
+      console.log(result);
+    })
     .catch(err => next(err));
 });
 
