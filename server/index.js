@@ -70,9 +70,20 @@ app.get('/api/cart', (req, res, next) => {
 // POST endpoint for cart
 app.post('/api/cart', (req, res, next) => {
   const { productId } = req.body;
-  if (isNaN(productId)) {
+  if (isNaN(productId) || productId <= 0) {
     return next(new ClientError('"productId" must be a positive integer', 400));
   }
+
+  const sql = `
+    select "price"
+    from "products"
+    where "productId" = $1
+  `;
+
+  const values = [productId];
+
+  db.query(sql, values);
+
 });
 
 app.use('/api', (req, res, next) => {
