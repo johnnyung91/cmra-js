@@ -9,7 +9,8 @@ export default class App extends React.Component {
     this.state = {
       view: {
         name: 'catalog',
-        params: {}
+        params: {},
+        cart: []
       }
     };
     this.setView = this.setView.bind(this);
