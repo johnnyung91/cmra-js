@@ -82,8 +82,10 @@ app.post('/api/cart', (req, res, next) => {
 
   const values = [productId];
 
-  db.query(sql, values);
-
+  db.query(sql, values)
+    .then(price => {
+      if (!price.rows[0]) next(new ClientError('productId does not exist', 400));
+    });
 });
 
 app.use('/api', (req, res, next) => {
