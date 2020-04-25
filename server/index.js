@@ -62,9 +62,17 @@ app.get('/api/products/:productId', (req, res, next) => {
     .catch(err => next(err));
 });
 
-// Get endpoint for cart
+// GET endpoint for cart
 app.get('/api/cart', (req, res, next) => {
   res.json([]);
+});
+
+// POST endpoint for cart
+app.post('/api/cart', (req, res, next) => {
+  const { productId } = req.body;
+  if (isNaN(productId)) {
+    return next(new ClientError('"productId" must be a positive integer', 400));
+  }
 });
 
 app.use('/api', (req, res, next) => {
