@@ -83,9 +83,25 @@ app.post('/api/cart', (req, res, next) => {
   const values = [productId];
 
   db.query(sql, values)
-    .then(price => {
-      if (!price.rows[0]) next(new ClientError('productId does not exist', 400));
-    });
+    .then(result => {
+      if (!result.rows[0]) throw new ClientError('productId does not exist', 400);
+      const { price } = result.rows[0]; // value of price
+      const sql = `
+        insert into "carts" ("cartId", "createdAt")
+        values (default, default)
+        returning "cartId"
+      `;
+      return db.query(sql)
+        .then(result => {
+          const { cartId } = result.rows[0]; // value of cartId
+          const cartObject = {
+            cartId: cartId,
+            price: price
+          };
+          return cartObject;
+        });
+    })
+    .catch(err => next(err));
 });
 
 app.use('/api', (req, res, next) => {
