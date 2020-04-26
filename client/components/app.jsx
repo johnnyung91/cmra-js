@@ -8,8 +8,8 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       view: {
-        name: 'catalog',
-        params: {}
+        name: 'details', // change to catalog
+        params: { productId: 1 } // change to empty
       },
       cart: []
     };

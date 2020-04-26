@@ -36,7 +36,7 @@ export default class ProductDetails extends React.Component {
               </p>
             </div>
             <div className="row pb-3">
-              <div className="col-lg-5 p-3 text-center">
+              <div className="col-lg-5 px-3 pb-3 text-center">
                 <img
                   src={product.image}
                   alt={product.name}
@@ -46,6 +46,7 @@ export default class ProductDetails extends React.Component {
                 <h3>{product.name}</h3>
                 <p className="text-muted">${currency}</p>
                 <p>{product.shortDescription}</p>
+                <button type="button" className="btn btn-primary">Add to Cart</button>
               </div>
             </div>
             <div>
