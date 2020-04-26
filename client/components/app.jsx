@@ -67,6 +67,7 @@ export default class App extends React.Component {
     let main;
     if (name === 'catalog') main = <ProductList setView={this.setView}/>;
     if (name === 'details') main = <ProductDetails params={params} setView={this.setView} addToCart={this.addToCart}/>;
+    if (name === 'cart') main = <CartSummary cart={cart}/>;
 
     return (
       <>
@@ -75,7 +76,6 @@ export default class App extends React.Component {
         </header>
         <main>
           {main}
-          <CartSummary cart={cart}/>
         </main>
       </>
     );
