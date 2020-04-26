@@ -40,16 +40,22 @@ export default class App extends React.Component {
   }
 
   addToCart(product) {
-    // const init =
-    //   {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/JSON'
-    //     },
-    //     body: JSON.stringify(product)
-    //   };
+    const init =
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/JSON'
+        },
+        body: JSON.stringify(product)
+      };
 
-    // fetch('/api/cart', init);
+    fetch('/api/cart', init)
+      .then(res => res.json())
+      .then(data => this.setState({
+        view: {
+          cart: this.state.view.cart.concat(data)
+        }
+      }));
   }
 
   render() {
