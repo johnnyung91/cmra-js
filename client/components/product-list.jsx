@@ -30,7 +30,7 @@ export default class ProductList extends React.Component {
       <div className="container py-5">
         <div className="row">
           {
-            products.map((product, index) => {
+            products.map(product => {
               return (
                 <ProductListItem
                   key={product.productId}

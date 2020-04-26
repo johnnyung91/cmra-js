@@ -2,8 +2,7 @@ import React from 'react';
 import Header from './header';
 import ProductList from './product-list';
 import ProductDetails from './product-details';
-// eslint-disable-next-line no-unused-vars
-import CartSummaryItem from './cart-summary-item';
+import CartSummary from './cart-summary';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -70,13 +69,13 @@ export default class App extends React.Component {
     if (name === 'details') main = <ProductDetails params={params} setView={this.setView} addToCart={this.addToCart}/>;
 
     return (
-
       <>
         <header>
           <Header cartItemCount={cart}/>
         </header>
         <main>
           {main}
+          <CartSummary cart={cart}/>
         </main>
       </>
     );
