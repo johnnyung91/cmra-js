@@ -26,3 +26,8 @@ h6 {
 .pointer {
   cursor: pointer;
 }
+
+h3,
+p {
+  width: 100%;
+}
