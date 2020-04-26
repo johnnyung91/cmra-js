@@ -20,7 +20,7 @@ export default class ProductDetails extends React.Component {
 
   render() {
     const { product } = this.state;
-    const { setView } = this.props;
+    const { setView, addToCart } = this.props;
 
     if (!product) {
       return null;
@@ -29,14 +29,14 @@ export default class ProductDetails extends React.Component {
       return (
         <div className="container py-5">
           <div className="container p-4 border rounded-lg shadow">
-            <div className="pb-3 back-button" onClick={() => setView('catalog', {})}>
+            <div className="d-inline-block pb-3 pointer d-" onClick={() => setView('catalog', {})}>
               <p>
                 <i className="fas fa-arrow-left pr-2"></i>
                 Back to Catalog
               </p>
             </div>
             <div className="row pb-3">
-              <div className="col-lg-5 p-3 text-center">
+              <div className="col-lg-5 px-3 pb-3 text-center">
                 <img
                   src={product.image}
                   alt={product.name}
@@ -46,6 +46,7 @@ export default class ProductDetails extends React.Component {
                 <h3>{product.name}</h3>
                 <p className="text-muted">${currency}</p>
                 <p>{product.shortDescription}</p>
+                <button type="button" className="btn btn-primary" onClick={() => addToCart(product)}>Add to Cart</button>
               </div>
             </div>
             <div>

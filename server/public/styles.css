@@ -1,7 +1,11 @@
 * {
   box-sizing: border-box;
+}
+
+
+h5,
+h6 {
   margin: 0;
-  padding: 0;
 }
 
 .fit-card {
@@ -11,7 +15,6 @@
 
 .product {
   height: 100%;
-  cursor: pointer;
 }
 
 .fit-detail {
@@ -20,7 +23,6 @@
   height: 100%;
 }
 
-.back-button {
+.pointer {
   cursor: pointer;
-  display: inline-block;
 }
