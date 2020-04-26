@@ -8,8 +8,8 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       view: {
-        name: 'details', // change to catalog
-        params: { productId: 1 } // change to empty
+        name: 'catalog', // change to catalog
+        params: {} // change to empty
       },
       cart: []
     };
@@ -34,30 +34,29 @@ export default class App extends React.Component {
   getCartItems() {
     fetch('/api/cart')
       .then(res => res.json())
-      .then(itemsInCart => this.setState({
-        cart: itemsInCart
-      }))
+      .then(data => {
+        this.setState({ cart: data });
+      })
       .catch(err => console.error(err));
   }
 
   addToCart(product) {
-    // eslint-disable-next-line no-console
-    console.log(product);
-    // const { cart } = this.state;
-    // const init =
-    //   {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/JSON'
-    //     },
-    //     body: JSON.stringify(product)
-    //   };
+    const { cart } = this.state;
+    const init =
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/JSON'
+        },
+        body: JSON.stringify(product)
+      };
 
-    // fetch('/api/cart', init)
-    //   .then(res => res.json())
-    //   .then(data => this.setState({
-    //     cart: cart.concat(data)
-    //   }));
+    fetch('/api/cart', init)
+      .then(res => res.json())
+      .then(data => this.setState({
+        cart: cart.concat(data)
+      }))
+      .catch(err => console.error(err));
   }
 
   render() {
