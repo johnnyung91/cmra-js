@@ -64,7 +64,8 @@ app.get('/api/products/:productId', (req, res, next) => {
 
 // GET endpoint for cart
 app.get('/api/cart', (req, res, next) => {
-  if (!req.session.cartId) {
+  const { cartId } = req.session;
+  if (!cartId) {
     res.json([]);
   } else {
     const sql = `
@@ -78,7 +79,7 @@ app.get('/api/cart', (req, res, next) => {
     join "products" as "p" using ("productId")
     where "c"."cartId" = $1
     `;
-    const values = [req.session.cartId];
+    const values = [cartId];
     db.query(sql, values)
       .then(cartResult => {
         const cartItem = cartResult.rows;
