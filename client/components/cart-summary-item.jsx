@@ -11,7 +11,7 @@ function CartSummaryItem(props) {
             <img
               src={cartItem.image}
               alt={cartItem.name}
-              className="fit-summary"/>
+              className="fit p-2"/>
           </div>
           <div className="col-lg-8 d-flex flex-column justify-content-center summary">
             <h3>{cartItem.name}</h3>

@@ -8,8 +8,9 @@ h6 {
   margin: 0;
 }
 
-.fit-card {
+.fit {
   object-fit: contain;
+  width: 100%;
   height: 300px;
 }
 
@@ -17,22 +18,6 @@ h6 {
   height: 100%;
 }
 
-.fit-detail {
-  object-fit: contain;
-  width: 100%;
-  height: 100%;
-}
-
-.fit-summary {
-  object-fit: contain;
-  width: 100%;
-  height: 250px;
-}
-
 .pointer {
   cursor: pointer;
-}
-
-.summary>* {
-  width: 100%;
 }

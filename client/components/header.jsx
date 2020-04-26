@@ -7,7 +7,7 @@ export default class Header extends React.Component {
     return (
       <div className="navbar-dark bg-dark shadow py-2">
         <div className="container d-flex justify-content-between py-2">
-          <div className="title-heading text-light">
+          <div className="title-heading text-light pointer" onClick={() => setView('catalog', {})}>
             <h5>
               <i className="fas fa-dollar-sign mr-2"></i>Wicked Sales
             </h5>

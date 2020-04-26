@@ -40,13 +40,15 @@ export default class ProductDetails extends React.Component {
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="fit-detail"/>
+                  className="fit"/>
               </div>
-              <div className="col-lg-7 pb-3">
-                <h3>{product.name}</h3>
-                <p className="text-muted">${currency}</p>
-                <p>{product.shortDescription}</p>
-                <button type="button" className="btn btn-primary" onClick={() => addToCart(product)}>Add to Cart</button>
+              <div className="col-lg-7 pb-3 d-flex align-items-center">
+                <div>
+                  <h3>{product.name}</h3>
+                  <p className="text-muted">${currency}</p>
+                  <p>{product.shortDescription}</p>
+                  <button type="button" className="btn btn-primary" onClick={() => addToCart(product)}>Add to Cart</button>
+                </div>
               </div>
             </div>
             <div>
