@@ -7,7 +7,7 @@ function CartSummaryItem(props) {
     <div className="py-3">
       <div className="container px-4 border rounded-lg shadow">
         <div className="row">
-          <div className="col-lg-4 p-3 text-center">
+          <div className="col-lg-4 p-2 text-center">
             <img
               src={cartItem.image}
               alt={cartItem.name}
