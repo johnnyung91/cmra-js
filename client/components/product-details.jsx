@@ -20,7 +20,7 @@ export default class ProductDetails extends React.Component {
 
   render() {
     const { product } = this.state;
-    const { setView } = this.props;
+    const { setView, addToCart } = this.props;
 
     if (!product) {
       return null;
@@ -46,7 +46,7 @@ export default class ProductDetails extends React.Component {
                 <h3>{product.name}</h3>
                 <p className="text-muted">${currency}</p>
                 <p>{product.shortDescription}</p>
-                <button type="button" className="btn btn-primary">Add to Cart</button>
+                <button type="button" className="btn btn-primary" onClick={() => addToCart(product)}>Add to Cart</button>
               </div>
             </div>
             <div>
