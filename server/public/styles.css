@@ -23,11 +23,16 @@ h6 {
   height: 100%;
 }
 
+.fit-summary {
+  object-fit: contain;
+  width: 100%;
+  height: 250px;
+}
+
 .pointer {
   cursor: pointer;
 }
 
-h3,
-p {
+.summary>* {
   width: 100%;
 }

@@ -8,6 +8,20 @@ export default class CartSummary extends React.Component {
     const totalPrice = cart.reduce((max, cur) => {
       return max + cur.price;
     }, 0) / 100;
+    let summary = null;
+
+    if (!cart) {
+      summary = <h2>Your Shopping Cart is empty</h2>;
+    } else {
+      summary = cart.map(cartItem => {
+        return (
+          <CartSummaryItem
+            key={cartItem.cartItemId}
+            cartItem={cartItem}
+          />
+        );
+      });
+    }
 
     return (
       <div className="container py-5">
@@ -17,18 +31,11 @@ export default class CartSummary extends React.Component {
           </div>
           <h1>My Cart</h1>
           <div>
-            {
-              cart.map(cartItem => {
-                return (
-                  <CartSummaryItem
-                    key={cartItem.cartItemId}
-                    cartItem={cartItem}
-                  />
-                );
-              })
-            }
+            {summary}
           </div>
-          <h2>{totalPrice}</h2>
+          <h3>
+            Cart Total: <span className="text-secondary">${totalPrice}</span>
+          </h3>
         </div>
       </div>
     );
