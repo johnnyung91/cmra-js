@@ -9,10 +9,10 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       view: {
-        name: 'catalog', // change to catalog
-        params: {} // change to empty
+        name: 'catalog',
+        params: {}
       },
-      cart: [] // to be empty
+      cart: []
     };
     this.setView = this.setView.bind(this);
     this.getCartItems = this.getCartItems.bind(this);
@@ -67,12 +67,12 @@ export default class App extends React.Component {
     let main;
     if (name === 'catalog') main = <ProductList setView={this.setView}/>;
     if (name === 'details') main = <ProductDetails params={params} setView={this.setView} addToCart={this.addToCart}/>;
-    if (name === 'cart') main = <CartSummary cart={cart}/>;
+    if (name === 'cart') main = <CartSummary cart={cart} setView={this.setView}/>;
 
     return (
       <>
         <header>
-          <Header cartItemCount={cart}/>
+          <Header cartItemCount={cart} setView={this.setView}/>
         </header>
         <main>
           {main}
