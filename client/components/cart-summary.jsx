@@ -10,7 +10,7 @@ export default class CartSummary extends React.Component {
     let summary = null;
     let button = null;
 
-    if (!cart) {
+    if (cart.length === 0) {
       summary = <h2>Your Shopping Cart is empty</h2>;
     } else {
       summary = cart.map(cartItem => {
@@ -34,13 +34,15 @@ export default class CartSummary extends React.Component {
           <div className="d-inline-block pb-3 pointer" onClick={() => setView('catalog', {})}>
             <p><i className="fas fa-arrow-left pr-2"></i>Back to Catalog</p>
           </div>
-          <h1>My Cart</h1>
-          <div>
+          <div className="py-3">
+            <h1>My Cart</h1>
+          </div>
+          <div className="py-3">
             {summary}
           </div>
-          <div className="row justify-content-between align-items-center px-3">
+          <div className="container d-flex justify-content-between align-items-center py-3 px-0">
             <div>
-              <h3 className="my-3">
+              <h3>
                 Cart Total: <span className="text-secondary">${totalPrice.toFixed(2)}</span>
               </h3>
             </div>
