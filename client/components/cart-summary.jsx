@@ -2,7 +2,6 @@ import React from 'react';
 import CartSummaryItem from './cart-summary-item';
 
 export default class CartSummary extends React.Component {
-
   render() {
     const { cart, setView } = this.props;
     const totalPrice = cart.reduce((max, cur) => {
@@ -24,8 +23,8 @@ export default class CartSummary extends React.Component {
     }
 
     return (
-      <div className="container py-5">
-        <div className="container p4">
+      <div className="container py-5 px-0">
+        <div className="container">
           <div className="d-inline-block pb-3 pointer" onClick={() => setView('catalog', {})}>
             <p><i className="fas fa-arrow-left pr-2"></i>Back to Catalog</p>
           </div>
