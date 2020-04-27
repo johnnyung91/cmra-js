@@ -18,6 +18,7 @@ export default class App extends React.Component {
     this.setView = this.setView.bind(this);
     this.getCartItems = this.getCartItems.bind(this);
     this.addToCart = this.addToCart.bind(this);
+    this.placeOrder = this.placeOrder.bind(this);
   }
 
   componentDidMount() {
@@ -74,7 +75,7 @@ export default class App extends React.Component {
     if (name === 'catalog') main = <ProductList setView={this.setView}/>;
     if (name === 'details') main = <ProductDetails params={params} setView={this.setView} addToCart={this.addToCart}/>;
     if (name === 'cart') main = <CartSummary cart={cart} setView={this.setView}/>;
-    if (name === 'checkout') main = <CheckoutForm cart={cart}/>;
+    if (name === 'checkout') main = <CheckoutForm cart={cart} placeOrder={this.placeOrder}/>;
 
     return (
       <>

@@ -9,12 +9,35 @@ export default class CheckoutForm extends React.Component {
       shippingAddress: ''
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.resetState = this.resetState.bind(this);
   }
 
   handleChange(event) {
     const input = event.target.name;
     this.setState({
       [input]: event.target.value
+    });
+  }
+
+  handleSubmit(event) {
+    // const { name, creditCard, shippingAddress } = this.state;
+    // const { placeOrder } = this.props;
+    event.preventDefault();
+    // const newOrder = {
+    //   name: name,
+    //   creditCard: creditCard,
+    //   shippingAddress: shippingAddress
+    // };
+    // placeOrder(newOrder);
+    this.resetState();
+  }
+
+  resetState() {
+    this.setState({
+      name: '',
+      creditCard: '',
+      shippingAddress: ''
     });
   }
 
@@ -31,7 +54,7 @@ export default class CheckoutForm extends React.Component {
             <h1 className="mb-4">My Cart</h1>
             <h3 className="mb-4">Order Total: <span className="text-secondary">${totalPrice.toFixed(2)}</span></h3>
           </div>
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <div className="form-group">
               <label htmlFor="formGroupExampleInput">Name</label>
               <input required type="text" className="form-control" name="name" onChange={this.handleChange}/>
@@ -49,7 +72,7 @@ export default class CheckoutForm extends React.Component {
                 <p><i className="fas fa-arrow-left pr-2"></i>Continue Shopping</p>
               </div>
               <div>
-                <button type="submit" className="btn btn-primary">Place Order</button>
+                <input type="submit" className="btn btn-primary" Place Order/>
               </div>
             </div>
           </form>
