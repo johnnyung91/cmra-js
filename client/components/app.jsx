@@ -3,6 +3,7 @@ import Header from './header';
 import ProductList from './product-list';
 import ProductDetails from './product-details';
 import CartSummary from './cart-summary';
+import CheckoutForm from './checkout-form';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -17,6 +18,7 @@ export default class App extends React.Component {
     this.setView = this.setView.bind(this);
     this.getCartItems = this.getCartItems.bind(this);
     this.addToCart = this.addToCart.bind(this);
+    this.placeOrder = this.placeOrder.bind(this);
   }
 
   componentDidMount() {
@@ -43,7 +45,7 @@ export default class App extends React.Component {
 
   addToCart(product) {
     const { cart } = this.state;
-    const init =
+    const req =
       {
         method: 'POST',
         headers: {
@@ -52,12 +54,36 @@ export default class App extends React.Component {
         body: JSON.stringify(product)
       };
 
-    fetch('/api/cart', init)
+    fetch('/api/cart', req)
       .then(res => res.json())
       .then(data => this.setState({
         cart: cart.concat(data)
       }))
       .catch(err => console.error(err));
+  }
+
+  placeOrder(order) {
+    const req =
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/JSON'
+      },
+      body: JSON.stringify(order)
+    };
+    fetch('/api/orders', req)
+      .then(res => res.json())
+      .then(data => this.resetState());
+  }
+
+  resetState() {
+    this.setState({
+      view: {
+        name: 'catalog',
+        params: {}
+      },
+      cart: []
+    });
   }
 
   render() {
@@ -68,6 +94,7 @@ export default class App extends React.Component {
     if (name === 'catalog') main = <ProductList setView={this.setView}/>;
     if (name === 'details') main = <ProductDetails params={params} setView={this.setView} addToCart={this.addToCart}/>;
     if (name === 'cart') main = <CartSummary cart={cart} setView={this.setView}/>;
+    if (name === 'checkout') main = <CheckoutForm cart={cart} placeOrder={this.placeOrder} setView={this.setView}/>;
 
     return (
       <>
