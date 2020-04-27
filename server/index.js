@@ -166,6 +166,37 @@ app.post('/api/cart', (req, res, next) => {
     .catch(err => next(err));
 });
 
+// POST endpoint for orders
+app.post('/api/orders', (req, res, next) => {
+  const { cartId } = req.session;
+  const { name, creditCard, shippingAddress } = req.body;
+  if (!cartId) {
+    return next(new ClientError('"cartId" does not exist', 400));
+  }
+  if (!name || !creditCard || !shippingAddress) {
+    return next(new ClientError('Client has supplied an invalid form: missing fields', 400));
+  }
+
+  const sql = `
+    insert into "orders" ("cartId", "name", "creditCard", "shippingAddress")
+    values ($1, $2, $3, $4)
+    returning "orderId",
+      "createdAt",
+      "name",
+      "creditCard",
+      "shippingAddress"
+  `;
+  const values = [cartId, name, creditCard, shippingAddress];
+
+  db.query(sql, values)
+    .then(orderResult => {
+      delete req.session.cartId;
+      const order = orderResult.rows[0];
+      res.status(201).json(order);
+    })
+    .catch(err => next(err));
+});
+
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
 });
