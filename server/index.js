@@ -180,12 +180,21 @@ app.post('/api/orders', (req, res, next) => {
   const sql = `
     insert into "orders" ("cartId", "name", "creditCard", "shippingAddress")
     values ($1, $2, $3, $4)
-    returning *
+    returning "orderId",
+      "createdAt",
+      "name",
+      "creditCard",
+      "shippingAddress"
   `;
   const values = [cartId, name, creditCard, shippingAddress];
 
-  db.query(sql, values);
-
+  db.query(sql, values)
+    .then(orderResult => {
+      delete req.session.cartId;
+      const order = orderResult.rows[0];
+      res.status(201).json(order);
+    })
+    .catch(err => next(err));
 });
 
 app.use('/api', (req, res, next) => {
