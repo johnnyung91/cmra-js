@@ -60,6 +60,11 @@ export default class App extends React.Component {
       .catch(err => console.error(err));
   }
 
+  placeOrder(order) {
+    // eslint-disable-next-line no-console
+    console.log('hello');
+  }
+
   render() {
     const { name, params } = this.state.view;
     const { cart } = this.state;
