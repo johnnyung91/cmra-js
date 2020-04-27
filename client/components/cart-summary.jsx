@@ -8,7 +8,7 @@ export default class CartSummary extends React.Component {
       return max + cur.price;
     }, 0) / 100;
 
-    const empty = <h2>Your Shopping Cart is empty</h2>;
+    const empty = <h3>Your Shopping Cart is empty</h3>;
     const items = cart.map(cartItem => {
       return (
         <CartSummaryItem
@@ -25,7 +25,6 @@ export default class CartSummary extends React.Component {
     );
 
     return (
-
       <div className="container py-5 px-0">
         <div className="container">
           <div className="d-inline-block pb-3 pointer" onClick={() => setView('catalog', {})}>
@@ -39,9 +38,9 @@ export default class CartSummary extends React.Component {
           </div>
           <div className="container d-flex justify-content-between align-items-center py-3 px-0">
             <div>
-              <h3>
+              <h4>
                 Cart Total: <span className="text-secondary">${totalPrice.toFixed(2)}</span>
-              </h3>
+              </h4>
             </div>
             {cart.length === 0 ? null : checkoutButton}
           </div>

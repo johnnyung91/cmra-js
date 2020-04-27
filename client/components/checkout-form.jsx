@@ -50,6 +50,12 @@ export default class CheckoutForm extends React.Component {
     return (
       <div className="container py-5 px-0">
         <div className="container p4">
+          <div className="d-inline-block pb-3 pointer d-" onClick={() => setView('cart', {})}>
+            <p>
+              <i className="fas fa-arrow-left pr-2"></i>
+                Back to Cart
+            </p>
+          </div>
           <div>
             <h1 className="mb-4">My Cart</h1>
             <h3 className="mb-4">Order Total: <span className="text-secondary">${totalPrice.toFixed(2)}</span></h3>
