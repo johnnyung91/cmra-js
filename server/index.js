@@ -169,10 +169,13 @@ app.post('/api/cart', (req, res, next) => {
 // POST endpoint for orders
 app.post('/api/orders', (req, res, next) => {
   const { cartId } = req.session;
+  const { name, creditCard, shippingAddress } = req.body;
   if (!cartId) {
     return next(new ClientError('"cartId" does not exist', 400));
   }
-
+  if (!name || !creditCard || !shippingAddress) {
+    return next(new ClientError('Client has supplied an invalid form: missing fields', 400));
+  }
 });
 
 app.use('/api', (req, res, next) => {
