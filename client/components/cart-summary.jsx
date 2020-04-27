@@ -18,11 +18,11 @@ export default class CartSummary extends React.Component {
       );
     });
 
-    const checkoutButton = (
+    const checkoutButton =
       <div>
         <button type="button" className="btn btn-primary" onClick={() => setView('checkout', {})}>Checkout</button>
       </div>
-    );
+    ;
 
     return (
       <div className="container py-5 px-0">
