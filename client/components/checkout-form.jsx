@@ -8,6 +8,14 @@ export default class CheckoutForm extends React.Component {
       creditCard: '',
       shippingAddress: ''
     };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    const input = event.target.name;
+    this.setState({
+      [input]: event.target.value
+    });
   }
 
   render() {
@@ -26,15 +34,15 @@ export default class CheckoutForm extends React.Component {
           <form>
             <div className="form-group">
               <label htmlFor="formGroupExampleInput">Name</label>
-              <input required type="text" className="form-control" name="name"/>
+              <input required type="text" className="form-control" name="name" onChange={this.handleChange}/>
             </div>
             <div className="form-group">
               <label htmlFor="formGroupExampleInput2">Credit Card</label>
-              <input required type="text" className="form-control" name="creditCard"/>
+              <input required type="text" className="form-control" name="creditCard" onChange={this.handleChange}/>
             </div>
             <div className="form-group">
               <label htmlFor="exampleFormControlTextarea1">Shipping Address</label>
-              <textarea required className="form-control" name="shippingAddress" rows="4"></textarea>
+              <textarea required className="form-control" name="shippingAddress" rows="4" onChange={this.handleChange}></textarea>
             </div>
             <div className="row justify-content-between p-3">
               <div className="pb-3 pointer">
