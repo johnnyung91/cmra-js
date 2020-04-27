@@ -166,6 +166,15 @@ app.post('/api/cart', (req, res, next) => {
     .catch(err => next(err));
 });
 
+// POST endpoint for orders
+app.post('/api/orders', (req, res, next) => {
+  const { cartId } = req.session;
+  if (!cartId) {
+    return next(new ClientError('"cartId" does not exist', 400));
+  }
+
+});
+
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
 });
