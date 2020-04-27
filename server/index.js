@@ -176,6 +176,16 @@ app.post('/api/orders', (req, res, next) => {
   if (!name || !creditCard || !shippingAddress) {
     return next(new ClientError('Client has supplied an invalid form: missing fields', 400));
   }
+
+  const sql = `
+    insert into "orders" ("cartId", "name", "creditCard", "shippingAddress")
+    values ($1, $2, $3, $4)
+    returning *
+  `;
+  const values = [cartId, name, creditCard, shippingAddress];
+
+  db.query(sql, values);
+
 });
 
 app.use('/api', (req, res, next) => {
