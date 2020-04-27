@@ -80,5 +80,4 @@ export default class CheckoutForm extends React.Component {
       </div>
     );
   }
-
 }

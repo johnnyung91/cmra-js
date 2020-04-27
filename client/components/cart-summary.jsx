@@ -32,9 +32,16 @@ export default class CartSummary extends React.Component {
           <div>
             {summary}
           </div>
-          <h3 className="my-3">
-            Cart Total: <span className="text-secondary">${totalPrice.toFixed(2)}</span>
-          </h3>
+          <div className="row justify-content-between align-items-center px-3">
+            <div>
+              <h3 className="my-3">
+                Cart Total: <span className="text-secondary">${totalPrice.toFixed(2)}</span>
+              </h3>
+            </div>
+            <div>
+              <button type="button" className="btn btn-primary" onClick={() => setView('checkout', {})}>Checkout</button>
+            </div>
+          </div>
         </div>
       </div>
     );

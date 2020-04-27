@@ -10,7 +10,7 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       view: {
-        name: 'checkout',
+        name: 'catalog',
         params: {}
       },
       cart: []
@@ -45,7 +45,7 @@ export default class App extends React.Component {
 
   addToCart(product) {
     const { cart } = this.state;
-    const init =
+    const req =
       {
         method: 'POST',
         headers: {
@@ -54,7 +54,7 @@ export default class App extends React.Component {
         body: JSON.stringify(product)
       };
 
-    fetch('/api/cart', init)
+    fetch('/api/cart', req)
       .then(res => res.json())
       .then(data => this.setState({
         cart: cart.concat(data)
