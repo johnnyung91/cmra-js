@@ -34,7 +34,7 @@ export default class CartSummary extends React.Component {
             {summary}
           </div>
           <h3 className="my-3">
-            Cart Total: <span className="text-secondary">${totalPrice}</span>
+            Cart Total: <span className="text-secondary">${totalPrice.toFixed(2)}</span>
           </h3>
         </div>
       </div>
