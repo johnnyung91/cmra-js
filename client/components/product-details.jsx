@@ -27,7 +27,6 @@ export default class ProductDetails extends React.Component {
     } else {
       const currency = (product.price / 100).toFixed(2);
       return (
-
         <div className="container py-5">
           <div className="container p-4 border rounded-lg shadow">
             <div className="d-inline-block pb-3 pointer d-" onClick={() => setView('catalog', {})}>
@@ -48,7 +47,9 @@ export default class ProductDetails extends React.Component {
                   <h3>{product.name}</h3>
                   <p className="text-muted">${currency}</p>
                   <p>{product.shortDescription}</p>
-                  <button type="button" className="btn btn-primary" onClick={() => addToCart(product)}>Add to Cart</button>
+                  <button type="button" className="btn btn-primary" onClick={() => addToCart(product)}>
+                      Add to Cart
+                  </button>
                 </div>
               </div>
             </div>

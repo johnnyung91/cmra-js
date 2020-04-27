@@ -62,23 +62,41 @@ export default class CheckoutForm extends React.Component {
           </div>
           <form onSubmit={this.handleSubmit}>
             <div className="form-group">
-              <label htmlFor="formGroupExampleInput">Name</label>
-              <input required type="text" className="form-control" name="name" onChange={this.handleChange}/>
+              <label>Name</label>
+              <input
+                required
+                type="text"
+                className="form-control"
+                name="name"
+                onChange={this.handleChange}/>
             </div>
             <div className="form-group">
-              <label htmlFor="formGroupExampleInput2">Credit Card</label>
-              <input required type="text" className="form-control" name="creditCard" onChange={this.handleChange}/>
+              <label>Credit Card</label>
+              <input
+                required
+                type="text"
+                className="form-control"
+                name="creditCard"
+                onChange={this.handleChange}/>
             </div>
             <div className="form-group">
-              <label htmlFor="exampleFormControlTextarea1">Shipping Address</label>
-              <textarea required className="form-control" name="shippingAddress" rows="4" onChange={this.handleChange}></textarea>
+              <label>Shipping Address</label>
+              <textarea
+                required
+                className="form-control"
+                name="shippingAddress"
+                rows="4"
+                onChange={this.handleChange}>
+              </textarea>
             </div>
             <div className="row justify-content-between p-3">
               <div className="pb-3 pointer" onClick={() => setView('catalog', {})}>
                 <p><i className="fas fa-arrow-left pr-2"></i>Continue Shopping</p>
               </div>
               <div>
-                <button type="submit" className="btn btn-primary">Place Order</button>
+                <button type="submit" className="btn btn-primary">
+                  Place Order
+                </button>
               </div>
             </div>
           </form>
