@@ -63,8 +63,27 @@ export default class App extends React.Component {
   }
 
   placeOrder(order) {
-    // eslint-disable-next-line no-console
-    console.log('hello');
+    const req =
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/JSON'
+      },
+      body: JSON.stringify(order)
+    };
+    fetch('/api/orders', req)
+      .then(res => res.json())
+      .then(data => this.resetState());
+  }
+
+  resetState() {
+    this.setState({
+      view: {
+        name: 'catalog',
+        params: {}
+      },
+      cart: []
+    });
   }
 
   render() {

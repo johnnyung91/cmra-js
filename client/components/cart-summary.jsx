@@ -8,6 +8,7 @@ export default class CartSummary extends React.Component {
       return max + cur.price;
     }, 0) / 100;
     let summary = null;
+    let button = null;
 
     if (!cart) {
       summary = <h2>Your Shopping Cart is empty</h2>;
@@ -20,9 +21,14 @@ export default class CartSummary extends React.Component {
           />
         );
       });
+      button =
+      (<div>
+        <button type="button" className="btn btn-primary" onClick={() => setView('checkout', {})}>Checkout</button>
+      </div>);
     }
 
     return (
+
       <div className="container py-5 px-0">
         <div className="container">
           <div className="d-inline-block pb-3 pointer" onClick={() => setView('catalog', {})}>
@@ -38,9 +44,7 @@ export default class CartSummary extends React.Component {
                 Cart Total: <span className="text-secondary">${totalPrice.toFixed(2)}</span>
               </h3>
             </div>
-            <div>
-              <button type="button" className="btn btn-primary" onClick={() => setView('checkout', {})}>Checkout</button>
-            </div>
+            {button}
           </div>
         </div>
       </div>
