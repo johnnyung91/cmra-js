@@ -75,7 +75,7 @@ export default class App extends React.Component {
     if (name === 'catalog') main = <ProductList setView={this.setView}/>;
     if (name === 'details') main = <ProductDetails params={params} setView={this.setView} addToCart={this.addToCart}/>;
     if (name === 'cart') main = <CartSummary cart={cart} setView={this.setView}/>;
-    if (name === 'checkout') main = <CheckoutForm cart={cart} placeOrder={this.placeOrder}/>;
+    if (name === 'checkout') main = <CheckoutForm cart={cart} placeOrder={this.placeOrder} setView={this.setView}/>;
 
     return (
       <>
