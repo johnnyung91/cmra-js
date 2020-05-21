@@ -13,7 +13,6 @@ app.use(sessionMiddleware);
 
 app.use(express.json());
 
-// view products back end
 app.get('/api/products', (req, res, next) => {
   const sql = `
     select "productId",
@@ -32,7 +31,6 @@ app.get('/api/products', (req, res, next) => {
     .catch(err => next(err));
 });
 
-// View product details by productId
 app.get('/api/products/:productId', (req, res, next) => {
   const { productId } = req.params;
   if (!parseInt(productId, 10)) {
@@ -62,7 +60,6 @@ app.get('/api/products/:productId', (req, res, next) => {
     .catch(err => next(err));
 });
 
-// GET endpoint for cart
 app.get('/api/cart', (req, res, next) => {
   const { cartId } = req.session;
   if (!cartId) {
@@ -88,7 +85,6 @@ app.get('/api/cart', (req, res, next) => {
   }
 });
 
-// POST endpoint for cart
 app.post('/api/cart', (req, res, next) => {
   const { productId } = req.body;
   if (isNaN(productId) || productId <= 0) {
@@ -102,16 +98,15 @@ app.post('/api/cart', (req, res, next) => {
   `;
   const values = [productId];
   db.query(sql, values)
-    // FIRST THEN
     .then(getPriceResult => {
       if (!getPriceResult.rows[0]) throw new ClientError('productId does not exist', 400);
-      const { price } = getPriceResult.rows[0]; // gets value of price
+      const { price } = getPriceResult.rows[0];
       if (req.session.cartId) {
         const cartResult = {
           cartId: req.session.cartId,
           price: price
         };
-        return cartResult; // creating a cartResult if req.session.cartId exists
+        return cartResult;
       } else {
         const sql = `
           insert into "carts" ("cartId", "createdAt")
@@ -120,18 +115,17 @@ app.post('/api/cart', (req, res, next) => {
         `;
         return db.query(sql)
           .then(getCartResult => {
-            const { cartId } = getCartResult.rows[0]; // gets value of cartId
+            const { cartId } = getCartResult.rows[0];
             const cartResult = {
               cartId: cartId,
               price: price
             };
-            return cartResult; // creating a cartResult if req.sessions.cartId doesnt exist
+            return cartResult;
           });
       }
     })
-    // SECOND THEN
     .then(createCartItemResult => {
-      const { cartId, price } = createCartItemResult; // cartId and price from previous step
+      const { cartId, price } = createCartItemResult;
       req.session.cartId = cartId;
 
       const sql = `
@@ -140,11 +134,10 @@ app.post('/api/cart', (req, res, next) => {
         returning "cartItemId"
       `;
       const values = [cartId, productId, price];
-      return db.query(sql, values); // creating a cartItemResult
+      return db.query(sql, values);
     })
-    // THIRD THEN
     .then(getCartItemResult => {
-      const { cartItemId } = getCartItemResult.rows[0]; // gets cartItemId from cartItemResult
+      const { cartItemId } = getCartItemResult.rows[0];
       const sql = `
         select "c"."cartItemId",
           "c"."price",
@@ -158,7 +151,7 @@ app.post('/api/cart', (req, res, next) => {
       `;
       const values = [cartItemId];
       return db.query(sql, values)
-        .then(result => { // send final cartItem as a response
+        .then(result => {
           const cartItem = result.rows[0];
           res.status(201).json(cartItem);
         });
@@ -166,7 +159,6 @@ app.post('/api/cart', (req, res, next) => {
     .catch(err => next(err));
 });
 
-// POST endpoint for orders
 app.post('/api/orders', (req, res, next) => {
   const { cartId } = req.session;
   const { name, creditCard, shippingAddress } = req.body;
