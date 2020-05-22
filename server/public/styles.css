@@ -19,6 +19,12 @@ h6 {
 
 .product {
   height: 100%;
+  transition: all .3s;
+}
+
+.product:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 5px 10px -7px #1c1c1c;
 }
 
 .pointer {
