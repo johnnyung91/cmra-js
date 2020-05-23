@@ -5,7 +5,7 @@ function ProductListItem(props) {
   const currency = (product.price / 100).toFixed(2);
   return (
     <div className="col-md-6 col-lg-4 mb-4" onClick={() => setView('details', product.productId)}>
-      <div className="card mb-4 shadow product pointer">
+      <div className="card mb-4 product pointer">
         <img
           className="card-img-top py-3 fit"
           src={product.image}
