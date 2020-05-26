@@ -7,12 +7,14 @@ export default class EnterModal extends React.Component {
   }
 
   handleClick() {
+    const { viewModal } = this.props;
     const enterModal = document.getElementById('enter-modal');
     const modalDialog = document.getElementById('enter-dialog');
     enterModal.classList.remove('fade-in');
     enterModal.classList.add('fade-out');
     modalDialog.classList.remove('slide-in');
     modalDialog.classList.add('slide-out');
+    setTimeout(() => viewModal(), 750);
   }
 
   render() {
@@ -23,7 +25,7 @@ export default class EnterModal extends React.Component {
           <div className="modal-content">
             <div className="modal-header flex-wrap justify-content-center modal-text pb-0">
               <h5 className="modal-title">Welcome to Wicked Sales!</h5>
-              <p>Wicked Sales is a full-stack E-commerce website built using React.js and is to be used <strong>strictly for demonstrative purposes</strong></p>
+              <p>Wicked Sales is a full-stack E-commerce website built using React.js and Node/Express and is to be used <strong>strictly for demonstrative purposes</strong></p>
             </div>
             <div className="modal-body modal-text">
               <p>
@@ -32,7 +34,7 @@ export default class EnterModal extends React.Component {
               <button
                 type="button"
                 className="btn btn-danger btn-block close-modal"
-                onClick={this.handleClick}>Close</button>
+                onClick={this.handleClick}>I Accept</button>
             </div>
           </div>
         </div>
