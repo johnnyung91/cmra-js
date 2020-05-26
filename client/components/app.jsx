@@ -21,6 +21,7 @@ export default class App extends React.Component {
     this.getCartItems = this.getCartItems.bind(this);
     this.addToCart = this.addToCart.bind(this);
     this.placeOrder = this.placeOrder.bind(this);
+    this.viewModal = this.viewModal.bind(this);
   }
 
   componentDidMount() {
@@ -88,6 +89,12 @@ export default class App extends React.Component {
     });
   }
 
+  viewModal() {
+    this.setState({
+      modalShowing: !this.state.modalShowing
+    });
+  }
+
   render() {
     const { name, params } = this.state.view;
     const { cart, modalShowing } = this.state;
@@ -106,7 +113,7 @@ export default class App extends React.Component {
         <main>
           {main}
         </main>
-        {modalShowing ? <EnterModal/> : null}
+        {modalShowing ? <EnterModal viewModal={this.viewModal}/> : null}
       </>
     );
   }
