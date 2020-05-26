@@ -19,7 +19,7 @@ h6 {
 
 .product {
   height: 100%;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 
 .product:hover {
@@ -29,4 +29,82 @@ h6 {
 
 .pointer {
   cursor: pointer;
+}
+
+.enter-modal {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+}
+
+.modal-overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-text {
+  text-align: center;
+}
+
+.fade-in {
+  animation: fade-in 0.75s;
+}
+
+.fade-out {
+  animation: fade-out 0.75s;
+}
+
+.slide-in {
+  animation: slide-in 0.75s
+}
+
+.slide-out {
+  animation: slide-out 0.75s;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateY(-100px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-out {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100px);
+  }
 }
