@@ -30,3 +30,26 @@ h6 {
 .pointer {
   cursor: pointer;
 }
+
+.enter-modal {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  animation: fade-in 0.5s;
+}
+
+.modal-overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+}

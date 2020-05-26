@@ -4,6 +4,7 @@ import ProductList from './product-list';
 import ProductDetails from './product-details';
 import CartSummary from './cart-summary';
 import CheckoutForm from './checkout-form';
+import EnterModal from './enter-modal';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -13,7 +14,8 @@ export default class App extends React.Component {
         name: 'catalog',
         params: {}
       },
-      cart: []
+      cart: [],
+      modalShowing: true
     };
     this.setView = this.setView.bind(this);
     this.getCartItems = this.getCartItems.bind(this);
@@ -88,7 +90,7 @@ export default class App extends React.Component {
 
   render() {
     const { name, params } = this.state.view;
-    const { cart } = this.state;
+    const { cart, modalShowing } = this.state;
 
     let main;
     if (name === 'catalog') main = <ProductList setView={this.setView}/>;
@@ -104,6 +106,7 @@ export default class App extends React.Component {
         <main>
           {main}
         </main>
+        {modalShowing ? <EnterModal/> : null}
       </>
     );
   }
