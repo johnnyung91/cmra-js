@@ -61,6 +61,10 @@ h6 {
   animation: fade-in 1s;
 }
 
+.fade-out {
+  animation: fade-out 1s;
+}
+
 .slide-in {
   animation: slide-in 1s
 }
