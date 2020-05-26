@@ -53,3 +53,8 @@ h6 {
   bottom: 0;
   background: rgba(0, 0, 0, 0.4);
 }
+
+.modal-body,
+.modal-header {
+  text-align: center;
+}
