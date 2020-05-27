@@ -21,13 +21,14 @@ export default class ProductDetails extends React.Component {
       .catch(err => console.error(err));
   }
 
-  itemAdded() {
+  itemAdded(product) {
+    this.props.addToCart(product);
     this.setState({ itemAdded: !this.state.itemAdded });
   }
 
   render() {
     const { product, itemAdded } = this.state;
-    const { setView, addToCart } = this.props;
+    const { setView } = this.props;
 
     if (!product) {
       return null;
@@ -59,10 +60,7 @@ export default class ProductDetails extends React.Component {
                     <button
                       type="button"
                       className="btn btn-primary"
-                      onClick={() => {
-                        addToCart(product);
-                        this.itemAdded();
-                      }}>
+                      onClick={() => this.itemAdded(product)}>
                       Add to Cart
                     </button>
                   </div>

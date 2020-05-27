@@ -1,7 +1,6 @@
 import React from 'react';
 
 export default class AddItemModal extends React.Component {
-
   render() {
     const { setView } = this.props;
 
