@@ -6,8 +6,9 @@ export default class ProductDetails extends React.Component {
     super(props);
     this.state = {
       product: null,
-      itemAdded: true
+      itemAdded: false
     };
+    this.itemAdded = this.itemAdded.bind(this);
   }
 
   componentDidMount() {
@@ -18,6 +19,10 @@ export default class ProductDetails extends React.Component {
         this.setState({ product: data });
       })
       .catch(err => console.error(err));
+  }
+
+  itemAdded() {
+    this.setState({ itemAdded: !this.state.itemAdded });
   }
 
   render() {
@@ -51,7 +56,13 @@ export default class ProductDetails extends React.Component {
                     <h3>{product.name}</h3>
                     <p className="text-muted">${currency}</p>
                     <p>{product.shortDescription}</p>
-                    <button type="button" className="btn btn-primary" onClick={() => addToCart(product)}>
+                    <button
+                      type="button"
+                      className="btn btn-primary"
+                      onClick={() => {
+                        addToCart(product);
+                        this.itemAdded();
+                      }}>
                       Add to Cart
                     </button>
                   </div>
@@ -66,5 +77,4 @@ export default class ProductDetails extends React.Component {
       );
     }
   }
-
 }
