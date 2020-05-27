@@ -1,7 +1,10 @@
 import React from 'react';
 
 export default class AddItemModal extends React.Component {
+
   render() {
+    const { setView } = this.props;
+
     return (
       <div className="add-modal fade-in" id="add-modal">
         <div className="modal-overlay"></div>
@@ -15,12 +18,18 @@ export default class AddItemModal extends React.Component {
             </div>
             <div className="modal-body d-flex">
               <div className="col-6">
-                <button type="button" className="btn btn-secondary btn-block close-modal">
+                <button
+                  type="button"
+                  className="btn btn-secondary btn-block close-modal"
+                  onClick={() => setView('catalog', {})}>
                   Continue Shopping
                 </button>
               </div>
               <div className="col-6">
-                <button type="button" className="btn btn-primary btn-block close-modal">
+                <button
+                  type="button"
+                  className="btn btn-primary btn-block close-modal"
+                  onClick={() => setView('cart', {})}>
                   View Cart
                 </button>
               </div>
