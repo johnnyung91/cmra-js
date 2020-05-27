@@ -31,7 +31,8 @@ h6 {
   cursor: pointer;
 }
 
-.enter-modal {
+.enter-modal,
+.add-modal {
   position: fixed;
   display: flex;
   justify-content: center;
