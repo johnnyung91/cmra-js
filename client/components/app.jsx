@@ -11,11 +11,11 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       view: {
-        name: 'catalog',
-        params: {}
+        name: 'details',
+        params: { productId: 1 }
       },
       cart: [],
-      modalShowing: true
+      modalShowing: false
     };
     this.setView = this.setView.bind(this);
     this.getCartItems = this.getCartItems.bind(this);
