@@ -10,11 +10,9 @@ export default class EnterModal extends React.Component {
     const { viewModal } = this.props;
     const enterModal = document.getElementById('enter-modal');
     const modalDialog = document.getElementById('enter-dialog');
-    enterModal.classList.remove('fade-in');
-    enterModal.classList.add('fade-out');
-    modalDialog.classList.remove('slide-in');
-    modalDialog.classList.add('slide-out');
-    setTimeout(() => viewModal(), 750);
+    enterModal.className = 'enter-modal fade-out';
+    modalDialog.className = 'modal-dialog w-75 slide-out';
+    setTimeout(() => viewModal(), 500);
   }
 
   render() {

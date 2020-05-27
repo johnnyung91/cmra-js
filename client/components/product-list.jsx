@@ -27,7 +27,7 @@ export default class ProductList extends React.Component {
     const { products } = this.state;
     const { setView } = this.props;
     return (
-      <div className="container py-5">
+      <div className="container py-5 fade-in">
         <div className="row">
           {
             products.map(product => {

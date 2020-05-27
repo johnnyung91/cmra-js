@@ -58,22 +58,31 @@ h6 {
 }
 
 .fade-in {
-  animation: fade-in 0.75s;
+  animation: fade-in 0.5s;
 }
 
 .fade-out {
-  animation: fade-out 0.75s;
+  animation: fade-out 0.5s;
 }
 
 .slide-in {
-  animation: slide-in 0.75s
+  animation: slide-in 0.5s
 }
 
 .slide-out {
-  animation: slide-out 0.75s;
+  animation: slide-out 0.5s;
 }
 
 @keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-product {
   0% {
     opacity: 0;
   }
