@@ -25,7 +25,7 @@ export default class CartSummary extends React.Component {
     ;
 
     return (
-      <div className="container py-5 px-0">
+      <div className="container py-5 px-0 fade-in">
         <div className="container">
           <div className="d-inline-block pb-3 pointer" onClick={() => setView('catalog', {})}>
             <p><i className="fas fa-arrow-left pr-2"></i>Back to Catalog</p>
