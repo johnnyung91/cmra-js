@@ -31,7 +31,8 @@ h6 {
   cursor: pointer;
 }
 
-.enter-modal {
+.enter-modal,
+.add-modal {
   position: fixed;
   display: flex;
   justify-content: center;
@@ -116,4 +117,13 @@ h6 {
   100% {
     transform: translateY(-100px);
   }
+}
+
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 667px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .add-body > :first-child {
+      margin-bottom: 8px!important;
+    }
 }

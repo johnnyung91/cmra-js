@@ -14,7 +14,7 @@ export default class Header extends React.Component {
           </div>
           <div className="cart-heading text-light pointer" onClick={() => setView('cart', {})}>
             <h6>
-              {cartItemCount.length} Items
+              {cartItemCount.length} {cartItemCount.length === 1 ? 'Item' : 'Items'}
               <i className="fas fa-shopping-cart ml-2"></i>
             </h6>
           </div>
