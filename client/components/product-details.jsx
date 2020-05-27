@@ -6,7 +6,7 @@ export default class ProductDetails extends React.Component {
     super(props);
     this.state = {
       product: null,
-      itemAdded: false
+      itemAdded: true
     };
     this.itemAdded = this.itemAdded.bind(this);
   }

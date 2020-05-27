@@ -118,3 +118,12 @@ h6 {
     transform: translateY(-100px);
   }
 }
+
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 667px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .add-body > :first-child {
+      margin-bottom: 8px!important;
+    }
+}

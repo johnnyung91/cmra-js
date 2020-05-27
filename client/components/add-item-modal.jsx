@@ -1,6 +1,7 @@
 import React from 'react';
 
 export default class AddItemModal extends React.Component {
+
   render() {
     const { setView } = this.props;
 
@@ -15,8 +16,8 @@ export default class AddItemModal extends React.Component {
                 <span className="text-muted">{this.props.product.name}</span> has been added to the cart.
               </p>
             </div>
-            <div className="modal-body d-flex">
-              <div className="col-6">
+            <div className="modal-body d-flex flex-wrap add-body">
+              <div className="col-sm-12 col-md-6 col-lg-6 modal-button">
                 <button
                   type="button"
                   className="btn btn-secondary btn-block close-modal"
@@ -24,7 +25,7 @@ export default class AddItemModal extends React.Component {
                   Continue Shopping
                 </button>
               </div>
-              <div className="col-6">
+              <div className="col-sm-12 col-md-6 col-lg-6 modal-button">
                 <button
                   type="button"
                   className="btn btn-primary btn-block close-modal"
