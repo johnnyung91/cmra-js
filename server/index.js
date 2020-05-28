@@ -189,6 +189,14 @@ app.post('/api/orders', (req, res, next) => {
     .catch(err => next(err));
 });
 
+app.delete('/api/cart', (req, res, next) => {
+  const { cartId } = req.session;
+  const { productId } = req.body;
+  // eslint-disable-next-line no-console
+  console.log(cartId, productId);
+
+});
+
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
 });
