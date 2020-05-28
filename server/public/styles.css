@@ -74,6 +74,14 @@ h6 {
   animation: slide-out 0.5s;
 }
 
+.remove-item {
+  font-size: 16px;
+}
+
+.red {
+  color: red
+}
+
 @keyframes fade-in {
   0% {
     opacity: 0;
