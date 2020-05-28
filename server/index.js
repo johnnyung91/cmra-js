@@ -210,7 +210,6 @@ app.delete('/api/cart', (req, res, next) => {
       if (!deletedItem) next(new ClientError(`Cannot find product with id ${productId}`, 404));
       res.status(204).json(deletedItem);
     });
-
 });
 
 app.use('/api', (req, res, next) => {

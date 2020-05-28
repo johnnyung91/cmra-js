@@ -20,7 +20,7 @@ export default class CartSummaryItem extends React.Component {
                 <h3 className="cart-item-heading mb-3">{cartItem.name}</h3>
                 <p className="text-muted">${currency}</p>
                 <p>{cartItem.shortDescription}</p>
-                <div className="text-muted remove-item pointer" onClick={() => removeFromCart()}>
+                <div className="text-muted remove-item pointer" onClick={() => removeFromCart(cartItem)}>
                   <span>
                     <i className="fas fa-times red"/> Remove Item From Cart
                   </span>

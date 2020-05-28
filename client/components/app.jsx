@@ -53,7 +53,7 @@ export default class App extends React.Component {
       {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/JSON'
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify(product)
       };
@@ -66,9 +66,25 @@ export default class App extends React.Component {
       .catch(err => console.error(err));
   }
 
-  removeFromCart(product) {
-    // eslint-disable-next-line no-console
-    console.log('hello');
+  removeFromCart(cartItem) {
+    const { cart } = this.state;
+    const req =
+      {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(cartItem)
+      };
+
+    fetch('/api/cart', req)
+      .then(() => {
+        const newCart = cart.filter(item => item.cartItemId !== cartItem.cartItemId);
+        this.setState({
+          cart: newCart
+        });
+      })
+      .catch(err => console.error(err));
   }
 
   placeOrder(order) {
