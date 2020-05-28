@@ -3,7 +3,7 @@ import CartSummaryItem from './cart-summary-item';
 
 export default class CartSummary extends React.Component {
   render() {
-    const { cart, setView } = this.props;
+    const { cart, setView, removeFromCart } = this.props;
     const totalPrice = cart.reduce((max, cur) => {
       return max + cur.price;
     }, 0) / 100;
@@ -14,6 +14,7 @@ export default class CartSummary extends React.Component {
         <CartSummaryItem
           key={cartItem.cartItemId}
           cartItem={cartItem}
+          removeFromCart={removeFromCart}
         />
       );
     });
