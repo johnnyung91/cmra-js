@@ -192,8 +192,9 @@ app.post('/api/orders', (req, res, next) => {
 app.delete('/api/cart', (req, res, next) => {
   const { cartId } = req.session;
   const { productId } = req.body;
-  // eslint-disable-next-line no-console
-  console.log(cartId, productId);
+
+  if (!cartId) next(new ClientError('"cartId" does not exist', 400));
+  if (isNaN(productId) || productId < 0) next(new ClientError('"product" must be a positive integer', 400));
 
 });
 
