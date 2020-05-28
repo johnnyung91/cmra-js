@@ -196,6 +196,15 @@ app.delete('/api/cart', (req, res, next) => {
   if (!cartId) next(new ClientError('"cartId" does not exist', 400));
   if (isNaN(productId) || productId < 0) next(new ClientError('"product" must be a positive integer', 400));
 
+  const sql = `
+    delete from "cartItems"
+    where "cartId" = $1
+    and "productId" = $2
+    returning *;
+  `;
+  const values = [cartId, productId];
+  db.query(sql, values);
+
 });
 
 app.use('/api', (req, res, next) => {
