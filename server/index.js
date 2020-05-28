@@ -189,6 +189,30 @@ app.post('/api/orders', (req, res, next) => {
     .catch(err => next(err));
 });
 
+app.delete('/api/cart', (req, res, next) => {
+  const { cartId } = req.session;
+  const { cartItemId, productId } = req.body;
+
+  if (!cartId) next(new ClientError('"cartId" does not exist', 400));
+  if (isNaN(productId) || productId < 0) next(new ClientError('"product" must be a positive integer', 400));
+
+  const sql = `
+    delete from "cartItems"
+    where "cartId" = $1
+    and "productId" = $2
+    and "cartItemId" = $3
+    returning *;
+  `;
+  const values = [cartId, productId, cartItemId];
+  db.query(sql, values)
+    .then(deleteResult => {
+      const deletedItem = deleteResult.rows[0];
+      if (!deletedItem) next(new ClientError(`Cannot find product with id ${productId}`, 404));
+      res.status(204).json(deletedItem);
+    });
+
+});
+
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
 });
