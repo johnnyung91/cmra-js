@@ -8,7 +8,7 @@ export default class CartSummary extends React.Component {
       return max + cur.price;
     }, 0) / 100;
 
-    const empty = <h3>Your Shopping Cart is empty</h3>;
+    const empty = <h4>Your Shopping Cart is empty</h4>;
     const items = cart.map(cartItem => {
       return (
         <CartSummaryItem
@@ -32,7 +32,7 @@ export default class CartSummary extends React.Component {
             <p><i className="fas fa-arrow-left pr-2"></i>Back to Catalog</p>
           </div>
           <div className="py-3">
-            <h1>My Cart</h1>
+            <h2>My Cart</h2>
           </div>
           <div className="py-3">
             {cart.length === 0 ? empty : items}

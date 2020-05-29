@@ -17,12 +17,12 @@ export default class CartSummaryItem extends React.Component {
             </div>
             <div className="col-md-8 col-lg-8 d-flex align-items-center summary py-4">
               <div>
-                <h3 className="cart-item-heading mb-3">{cartItem.name}</h3>
+                <h4 className="cart-item-heading mb-3">{cartItem.name}</h4>
                 <p className="text-muted">${currency}</p>
                 <p>{cartItem.shortDescription}</p>
                 <div className="text-muted remove-item pointer" onClick={() => removeFromCart(cartItem)}>
                   <span>
-                    <i className="fas fa-times red"/> Remove Item From Cart
+                    <i className="fas fa-times red"/> Remove Item
                   </span>
                 </div>
               </div>

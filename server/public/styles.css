@@ -82,6 +82,12 @@ h6 {
   color: red
 }
 
+.close-button {
+  position: absolute;
+  font-size: 25px;
+  right: 6px;
+}
+
 @keyframes fade-in {
   0% {
     opacity: 0;
