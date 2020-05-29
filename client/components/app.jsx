@@ -15,13 +15,14 @@ export default class App extends React.Component {
         params: {}
       },
       cart: [],
-      modalShowing: true
+      modalShowing: false
     };
     this.setView = this.setView.bind(this);
     this.getCartItems = this.getCartItems.bind(this);
     this.addToCart = this.addToCart.bind(this);
     this.placeOrder = this.placeOrder.bind(this);
     this.viewModal = this.viewModal.bind(this);
+    this.removeFromCart = this.removeFromCart.bind(this);
   }
 
   componentDidMount() {
@@ -52,7 +53,7 @@ export default class App extends React.Component {
       {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/JSON'
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify(product)
       };
@@ -62,6 +63,27 @@ export default class App extends React.Component {
       .then(data => this.setState({
         cart: cart.concat(data)
       }))
+      .catch(err => console.error(err));
+  }
+
+  removeFromCart(cartItem) {
+    const { cart } = this.state;
+    const req =
+      {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(cartItem)
+      };
+
+    fetch('/api/cart', req)
+      .then(() => {
+        const newCart = cart.filter(item => item.cartItemId !== cartItem.cartItemId);
+        this.setState({
+          cart: newCart
+        });
+      })
       .catch(err => console.error(err));
   }
 
@@ -102,7 +124,7 @@ export default class App extends React.Component {
     let main;
     if (name === 'catalog') main = <ProductList setView={this.setView}/>;
     if (name === 'details') main = <ProductDetails params={params} setView={this.setView} addToCart={this.addToCart}/>;
-    if (name === 'cart') main = <CartSummary cart={cart} setView={this.setView}/>;
+    if (name === 'cart') main = <CartSummary cart={cart} setView={this.setView} removeFromCart={this.removeFromCart}/>;
     if (name === 'checkout') main = <CheckoutForm cart={cart} placeOrder={this.placeOrder} setView={this.setView}/>;
 
     return (

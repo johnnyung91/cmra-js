@@ -9,6 +9,7 @@ export default class ProductDetails extends React.Component {
       itemAdded: false
     };
     this.itemAdded = this.itemAdded.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
   componentDidMount() {
@@ -26,6 +27,12 @@ export default class ProductDetails extends React.Component {
     this.setState({ itemAdded: !this.state.itemAdded });
   }
 
+  closeModal() {
+    this.setState({
+      itemAdded: !this.state.itemAdded
+    });
+  }
+
   render() {
     const { product, itemAdded } = this.state;
     const { setView } = this.props;
@@ -36,7 +43,7 @@ export default class ProductDetails extends React.Component {
       const currency = (product.price / 100).toFixed(2);
       return (
         <>
-          {itemAdded ? <AddItemModal product={product} setView={setView}/> : null}
+          {itemAdded ? <AddItemModal product={product} setView={setView} closeModal={this.closeModal}/> : null}
           <div className="container py-5 fade-in">
             <div className="container p-4 border rounded-lg shadow">
               <div className="d-inline-block pb-3 pointer d-" onClick={() => setView('catalog', {})}>

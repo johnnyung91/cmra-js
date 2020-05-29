@@ -57,8 +57,8 @@ export default class CheckoutForm extends React.Component {
             </p>
           </div>
           <div>
-            <h1 className="mb-4">My Cart</h1>
-            <h3 className="mb-4">Order Total: <span className="text-secondary">${totalPrice.toFixed(2)}</span></h3>
+            <h3 className="mb-4">My Cart</h3>
+            <h5 className="mb-4">Order Total: <span className="text-secondary">${totalPrice.toFixed(2)}</span></h5>
           </div>
           <form onSubmit={this.handleSubmit}>
             <div className="form-group">

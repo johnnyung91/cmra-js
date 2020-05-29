@@ -1,19 +1,53 @@
 import React from 'react';
 import CartSummaryItem from './cart-summary-item';
+import RemoveModal from './remove-item-modal';
 
 export default class CartSummary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      confirmRemove: {
+        view: false,
+        product: {}
+      }
+    };
+    this.confirmDelete = this.confirmDelete.bind(this);
+    this.resetState = this.resetState.bind(this);
+  }
+
+  confirmDelete(cartItem) {
+    const { confirmRemove: { view } } = this.state;
+    this.setState({
+      confirmRemove: {
+        view: !view,
+        product: cartItem
+      }
+    });
+  }
+
+  resetState() {
+    this.setState({
+      confirmRemove: {
+        view: false,
+        product: {}
+      }
+    });
+  }
+
   render() {
-    const { cart, setView } = this.props;
+    const { cart, setView, removeFromCart } = this.props;
+    const { confirmRemove: { view, product } } = this.state;
     const totalPrice = cart.reduce((max, cur) => {
       return max + cur.price;
     }, 0) / 100;
 
-    const empty = <h3>Your Shopping Cart is empty</h3>;
+    const empty = <h4>Your Shopping Cart is empty</h4>;
     const items = cart.map(cartItem => {
       return (
         <CartSummaryItem
           key={cartItem.cartItemId}
           cartItem={cartItem}
+          confirmDelete={this.confirmDelete}
         />
       );
     });
@@ -25,27 +59,30 @@ export default class CartSummary extends React.Component {
     ;
 
     return (
-      <div className="container py-5 px-0 fade-in">
-        <div className="container">
-          <div className="d-inline-block pb-3 pointer" onClick={() => setView('catalog', {})}>
-            <p><i className="fas fa-arrow-left pr-2"></i>Back to Catalog</p>
-          </div>
-          <div className="py-3">
-            <h1>My Cart</h1>
-          </div>
-          <div className="py-3">
-            {cart.length === 0 ? empty : items}
-          </div>
-          <div className="container d-flex justify-content-between align-items-center py-3 px-0">
-            <div>
-              <h4>
-                Cart Total: <span className="text-secondary">${totalPrice.toFixed(2)}</span>
-              </h4>
+      <>
+        {view ? <RemoveModal product={product} removeFromCart={removeFromCart} resetState={this.resetState}/> : null}
+        <div className="container py-5 px-0 fade-in">
+          <div className="container">
+            <div className="d-inline-block pb-3 pointer" onClick={() => setView('catalog', {})}>
+              <p><i className="fas fa-arrow-left pr-2"></i>Back to Catalog</p>
             </div>
-            {cart.length === 0 ? null : checkoutButton}
+            <div>
+              <h3>My Cart</h3>
+            </div>
+            <div className="py-3">
+              {cart.length === 0 ? empty : items}
+            </div>
+            <div className="container d-flex justify-content-between align-items-center px-0">
+              <div>
+                <h5>
+                Cart Total: <span className="text-secondary">${totalPrice.toFixed(2)}</span>
+                </h5>
+              </div>
+              {cart.length === 0 ? null : checkoutButton}
+            </div>
           </div>
         </div>
-      </div>
+      </>
     );
   }
 }
