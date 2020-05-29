@@ -66,17 +66,17 @@ export default class CartSummary extends React.Component {
             <div className="d-inline-block pb-3 pointer" onClick={() => setView('catalog', {})}>
               <p><i className="fas fa-arrow-left pr-2"></i>Back to Catalog</p>
             </div>
-            <div className="py-3">
-              <h2>My Cart</h2>
+            <div>
+              <h3>My Cart</h3>
             </div>
             <div className="py-3">
               {cart.length === 0 ? empty : items}
             </div>
-            <div className="container d-flex justify-content-between align-items-center py-3 px-0">
+            <div className="container d-flex justify-content-between align-items-center px-0">
               <div>
-                <h4>
+                <h5>
                 Cart Total: <span className="text-secondary">${totalPrice.toFixed(2)}</span>
-                </h4>
+                </h5>
               </div>
               {cart.length === 0 ? null : checkoutButton}
             </div>

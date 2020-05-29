@@ -141,4 +141,17 @@ h6 {
     .add-body > :first-child {
       margin-bottom: 8px!important;
     }
+
+    .fit {
+      object-fit: contain;
+      width: 100%;
+      height: 200px;
+    }
+
+    .remove-image {
+      object-fit: contain;
+      width: 100%;
+      height: 150px;
+    }
+
 }
