@@ -32,7 +32,8 @@ h6 {
 }
 
 .enter-modal,
-.add-modal {
+.add-modal,
+.remove-modal {
   position: fixed;
   display: flex;
   justify-content: center;
