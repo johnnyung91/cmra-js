@@ -6,8 +6,10 @@ export default class RemoveModal extends React.Component {
     this.handleRemove = this.handleRemove.bind(this);
   }
 
-  handleRemove(cartItem) {
-
+  handleRemove() {
+    const { product, removeFromCart, resetState } = this.props;
+    removeFromCart(product);
+    resetState();
   }
 
   render() {
@@ -40,7 +42,7 @@ export default class RemoveModal extends React.Component {
                 <button
                   type="button"
                   className="btn btn-danger btn-block close-modal"
-                  onClick={() => this.handleRemove(product)}
+                  onClick={() => this.handleRemove()}
                 >
                   Remove
                 </button>
