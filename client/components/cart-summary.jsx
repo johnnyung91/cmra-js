@@ -2,6 +2,13 @@ import React from 'react';
 import CartSummaryItem from './cart-summary-item';
 
 export default class CartSummary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      confirmRemove: false
+    };
+  }
+
   render() {
     const { cart, setView, removeFromCart } = this.props;
     const totalPrice = cart.reduce((max, cur) => {
