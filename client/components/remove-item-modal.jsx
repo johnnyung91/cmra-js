@@ -2,6 +2,8 @@ import React from 'react';
 
 export default class RemoveModal extends React.Component {
   render() {
+    const { product } = this.props;
+
     return (
       <div className="remove-modal fade-in" id="remove-modal">
         <div className="modal-overlay"></div>
@@ -11,7 +13,7 @@ export default class RemoveModal extends React.Component {
               <i className="far fa-times-circle text-secondary"></i>
             </div>
             <div className="modal-header flex-wrap modal-text pb-0">
-              <h4 className="modal-title w-100 pb-2">Sample header</h4>
+              <h4 className="modal-title w-100 pb-2">{product.name}</h4>
               <p className="w-100">
                 sample header
               </p>
@@ -27,7 +29,8 @@ export default class RemoveModal extends React.Component {
               <div className="col-sm-12 col-md-6 col-lg-6 modal-button">
                 <button
                   type="button"
-                  className="btn btn-danger btn-block close-modal">
+                  className="btn btn-danger btn-block close-modal"
+                >
                   Remove
                 </button>
               </div>

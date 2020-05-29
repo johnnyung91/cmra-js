@@ -7,14 +7,26 @@ export default class CartSummary extends React.Component {
     super(props);
     this.state = {
       confirmRemove: {
-        view: true,
+        view: false,
         product: {}
       }
     };
+    this.confirmDelete = this.confirmDelete.bind(this);
+  }
+
+  confirmDelete(cartItem) {
+    const { confirmRemove: { view } } = this.state;
+    this.setState({
+      confirmRemove: {
+        view: !view,
+        product: cartItem
+      }
+    });
   }
 
   render() {
     const { cart, setView, removeFromCart } = this.props;
+    const { confirmRemove: { view, product } } = this.state;
     const totalPrice = cart.reduce((max, cur) => {
       return max + cur.price;
     }, 0) / 100;
@@ -25,7 +37,7 @@ export default class CartSummary extends React.Component {
         <CartSummaryItem
           key={cartItem.cartItemId}
           cartItem={cartItem}
-          removeFromCart={removeFromCart}
+          confirmDelete={this.confirmDelete}
         />
       );
     });
@@ -38,7 +50,7 @@ export default class CartSummary extends React.Component {
 
     return (
       <>
-        {this.state.confirmRemove.view ? <RemoveModal /> : null}
+        {view ? <RemoveModal product={product} removeFromCart={removeFromCart}/> : null}
         <div className="container py-5 px-0 fade-in">
           <div className="container">
             <div className="d-inline-block pb-3 pointer" onClick={() => setView('catalog', {})}>

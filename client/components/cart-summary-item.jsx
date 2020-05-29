@@ -3,7 +3,7 @@ import React from 'react';
 export default class CartSummaryItem extends React.Component {
 
   render() {
-    const { cartItem, removeFromCart } = this.props;
+    const { cartItem, confirmDelete } = this.props;
     const currency = (cartItem.price / 100).toFixed(2);
     return (
       <div className="py-3">
@@ -20,7 +20,7 @@ export default class CartSummaryItem extends React.Component {
                 <h4 className="cart-item-heading mb-3">{cartItem.name}</h4>
                 <p className="text-muted">${currency}</p>
                 <p>{cartItem.shortDescription}</p>
-                <div className="text-muted remove-item pointer" onClick={() => removeFromCart(cartItem)}>
+                <div className="text-muted remove-item pointer" onClick={() => confirmDelete(cartItem)}>
                   <span>
                     <i className="fas fa-times red"/> Remove Item
                   </span>
