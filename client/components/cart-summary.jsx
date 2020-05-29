@@ -6,7 +6,10 @@ export default class CartSummary extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      confirmRemove: true
+      confirmRemove: {
+        view: true,
+        product: {}
+      }
     };
   }
 
@@ -35,7 +38,7 @@ export default class CartSummary extends React.Component {
 
     return (
       <>
-        {this.state.confirmRemove ? <RemoveModal /> : null}
+        {this.state.confirmRemove.view ? <RemoveModal /> : null}
         <div className="container py-5 px-0 fade-in">
           <div className="container">
             <div className="d-inline-block pb-3 pointer" onClick={() => setView('catalog', {})}>
