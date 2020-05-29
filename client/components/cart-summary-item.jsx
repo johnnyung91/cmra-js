@@ -17,7 +17,7 @@ export default class CartSummaryItem extends React.Component {
             </div>
             <div className="col-sm-8 col-md-8 col-lg-8 d-flex align-items-center summary py-4">
               <div>
-                <h4 className="cart-item-heading mb-3">{cartItem.name}</h4>
+                <h5 className="cart-item-heading mb-3">{cartItem.name}</h5>
                 <p className="text-muted">${currency}</p>
                 <p>{cartItem.shortDescription}</p>
                 <div className="text-muted remove-item pointer" onClick={() => confirmDelete(cartItem)}>
