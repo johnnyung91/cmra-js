@@ -12,6 +12,7 @@ export default class CartSummary extends React.Component {
       }
     };
     this.confirmDelete = this.confirmDelete.bind(this);
+    this.resetState = this.resetState.bind(this);
   }
 
   confirmDelete(cartItem) {
@@ -20,6 +21,15 @@ export default class CartSummary extends React.Component {
       confirmRemove: {
         view: !view,
         product: cartItem
+      }
+    });
+  }
+
+  resetState() {
+    this.setState({
+      confirmRemove: {
+        view: false,
+        product: {}
       }
     });
   }
@@ -50,7 +60,7 @@ export default class CartSummary extends React.Component {
 
     return (
       <>
-        {view ? <RemoveModal product={product} removeFromCart={removeFromCart}/> : null}
+        {view ? <RemoveModal product={product} removeFromCart={removeFromCart} resetState={this.resetState}/> : null}
         <div className="container py-5 px-0 fade-in">
           <div className="container">
             <div className="d-inline-block pb-3 pointer" onClick={() => setView('catalog', {})}>
