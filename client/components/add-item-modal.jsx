@@ -3,25 +3,34 @@ import React from 'react';
 export default class AddItemModal extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      showModal: true
+    };
     this.handleClose = this.handleClose.bind(this);
   }
 
   handleClose() {
     const { closeModal } = this.props;
-    const addModal = document.getElementById('add-modal');
-    const addDialog = document.getElementById('add-dialog');
-    addModal.className = 'add-modal fade-out';
-    addDialog.className = 'modal-dialog w-75 slide-out';
+    this.removeModal();
     setTimeout(() => closeModal(), 450);
+  }
+
+  removeModal() {
+    this.setState({
+      showModal: !this.state.showModal
+    });
   }
 
   render() {
     const { setView } = this.props;
+    const { showModal } = this.state;
+    const fade = showModal ? 'fade-in' : 'fade-out';
+    const slide = showModal ? 'slide-in' : 'slide-out';
 
     return (
-      <div className="add-modal fade-in" id="add-modal">
+      <div className={`add-modal ${fade}`} id="add-modal">
         <div className="modal-overlay"></div>
-        <div className="modal-dialog w-75 slide-in" id="add-dialog">
+        <div className={`modal-dialog w-75 ${slide}`} id="add-dialog">
           <div className="modal-content">
             <div className="close-button pointer" onClick={this.handleClose}>
               <i className="far fa-times-circle text-secondary"></i>

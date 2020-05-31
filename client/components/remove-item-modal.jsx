@@ -3,20 +3,16 @@ import React from 'react';
 export default class RemoveModal extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      showModal: true
+    };
     this.handleRemove = this.handleRemove.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
   }
 
-  animateModal() {
-    const removeModal = document.getElementById('remove-modal');
-    const removeDialog = document.getElementById('remove-dialog');
-    removeModal.className = 'remove-modal fade-out';
-    removeDialog.className = 'modal-dialog slide-out';
-  }
-
   handleRemove() {
     const { product, removeFromCart, resetState } = this.props;
-    this.animateModal();
+    this.removeModal();
     removeFromCart(product);
     setTimeout(() => {
       resetState();
@@ -25,17 +21,26 @@ export default class RemoveModal extends React.Component {
 
   handleCancel() {
     const { resetState } = this.props;
-    this.animateModal();
+    this.removeModal();
     setTimeout(() => resetState(), 450);
+  }
+
+  removeModal() {
+    this.setState({
+      showModal: !this.state.showModal
+    });
   }
 
   render() {
     const { product } = this.props;
+    const { showModal } = this.state;
+    const fade = showModal ? 'fade-in' : 'fade-out';
+    const slide = showModal ? 'slide-in' : 'slide-out';
 
     return (
-      <div className="remove-modal fade-in" id="remove-modal">
+      <div className={`remove-modal ${fade}`} id="remove-modal">
         <div className="modal-overlay"></div>
-        <div className="modal-dialog slide-in" id="remove-dialog">
+        <div className={`modal-dialog ${slide}`} id="remove-dialog">
           <div className="modal-content">
             <div className="close-button pointer" onClick={() => this.handleCancel()}>
               <i className="far fa-times-circle text-secondary"></i>
