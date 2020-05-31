@@ -57,6 +57,8 @@ h6 {
 
 .modal-text {
   text-align: center;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .fade-in {

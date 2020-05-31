@@ -31,9 +31,11 @@ export default class EnterModal extends React.Component {
         <div className="modal-overlay"></div>
         <div className={`modal-dialog w-75 ${slide}`} id="enter-dialog">
           <div className="modal-content">
-            <div className="modal-header flex-wrap justify-content-center modal-text pb-0">
-              <h5 className="modal-title">Welcome to Wicked Sales!</h5>
-              <p>Wicked Sales is a full-stack E-commerce website built using React.js and Node/Express and is to be used <strong>strictly for demonstrative purposes</strong></p>
+            <div className="modal-header modal-text pb-0">
+              <div>
+                <h5 className="modal-title">Welcome to Wicked Sales!</h5>
+                <p>Wicked Sales is a full-stack E-commerce website built using React.js and Node/Express and is to be used <strong>strictly for demonstrative purposes</strong></p>
+              </div>
             </div>
             <div className="modal-body modal-text">
               <p>

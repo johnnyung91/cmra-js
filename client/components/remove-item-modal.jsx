@@ -46,9 +46,11 @@ export default class RemoveModal extends React.Component {
               <i className="far fa-times-circle text-secondary"></i>
             </div>
             <div className="modal-header flex-wrap modal-text pb-0 px-4">
-              <p className="modal-title w-100 pb-2">Are you sure you want to remove this item?</p>
-              <p className="w-100 text-secondary">{product.name}</p>
-              <img src={product.image} alt={product.name} className="fit remove-image"/>
+              <div className="pb-2">
+                <p className="modal-title pb-2">Are you sure you want to remove this item?</p>
+                <p className="text-secondary">{product.name}</p>
+                <img src={product.image} alt={product.name} className="fit remove-image"/>
+              </div>
             </div>
             <div className="modal-body d-flex flex-wrap add-body">
               <div className="col-sm-12 col-md-6 col-lg-6 modal-button">
