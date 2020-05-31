@@ -3,23 +3,33 @@ import React from 'react';
 export default class EnterModal extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      showModal: true
+    };
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick() {
     const { viewModal } = this.props;
-    const enterModal = document.getElementById('enter-modal');
-    const modalDialog = document.getElementById('enter-dialog');
-    enterModal.className = 'enter-modal fade-out';
-    modalDialog.className = 'modal-dialog w-75 slide-out';
+    this.removeModal();
     setTimeout(() => viewModal(), 450);
   }
 
+  removeModal() {
+    this.setState({
+      showModal: !this.state.showModal
+    });
+  }
+
   render() {
+    const { showModal } = this.state;
+    const fade = showModal ? 'fade-in' : 'fade-out';
+    const slide = showModal ? 'slide-in' : 'slide-out';
+
     return (
-      <div className="enter-modal fade-in" id="enter-modal">
+      <div className={`enter-modal ${fade}`} id="enter-modal">
         <div className="modal-overlay"></div>
-        <div className="modal-dialog w-75 slide-in" id="enter-dialog">
+        <div className={`modal-dialog w-75 ${slide}`} id="enter-dialog">
           <div className="modal-content">
             <div className="modal-header flex-wrap justify-content-center modal-text pb-0">
               <h5 className="modal-title">Welcome to Wicked Sales!</h5>
