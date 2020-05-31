@@ -3,6 +3,9 @@ import React from 'react';
 export default class RemoveModal extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      showModal: false
+    };
     this.handleRemove = this.handleRemove.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
   }
