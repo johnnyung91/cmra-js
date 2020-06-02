@@ -6,7 +6,7 @@ export default class Header extends React.Component {
 
     return (
       <header>
-        <div className="navbar-dark bg-dark shadow py-2">
+        <div className="navbar-dark bg-dark shadow py-1">
           <div className="container d-flex justify-content-between align-items-center py-2">
             <div className="title-heading text-light pointer" onClick={() => setView('catalog', {})}>
               <img src="/images/cmra-logo.png" alt="" srcSet="" id='image'/>

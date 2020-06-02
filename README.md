@@ -2,7 +2,7 @@
 CMRA is a full stack E-commerce web application built using React.js and Node.js/Express.
 
 ## Live Demo
-Try the application live at https://wicked-sales.johnnyungcodes.com/
+Try the application live at https://cmra.johnnyungcodes.com/
 
 ## Technologies Used
 - React.js
@@ -24,7 +24,7 @@ Try the application live at https://wicked-sales.johnnyungcodes.com/
 - Mobile Responsive: compatible in portrait and landscape mode for iPhone 6/7/8 and iPad
 
 ## Preview
-![wicked-sales-preview](./server/public/images/wicked-sales-preview.gif)
+![cmra-preview](./server/public/images/wicked-sales-preview.gif)
 
 ## Development
 
@@ -38,9 +38,9 @@ Try the application live at https://wicked-sales.johnnyungcodes.com/
 1. Clone the repository and change directory to cloned folder.
 
     ```shell
-    git clone https://github.com/johnnyung91/wicked-sales-js.git
+    git clone https://github.com/johnnyung91/cmra-js.git
 
-    cd wicked-sales
+    cd cmra-js
     ```
 
 2. Install all dependencies with NPM.
