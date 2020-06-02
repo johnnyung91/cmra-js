@@ -13,6 +13,10 @@ export default class CheckoutForm extends React.Component {
     this.resetState = this.resetState.bind(this);
   }
 
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   handleChange(event) {
     const input = event.target.name;
     this.setState({

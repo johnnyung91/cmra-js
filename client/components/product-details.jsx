@@ -13,6 +13,7 @@ export default class ProductDetails extends React.Component {
   }
 
   componentDidMount() {
+    window.scrollTo(0, 0);
     const { productId } = this.props.params;
     fetch(`api/products/${productId}`)
       .then(res => res.json())

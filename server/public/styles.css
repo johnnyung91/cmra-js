@@ -10,12 +10,12 @@ body {
   height: 100%;
 }
 
-#root {
-  min-height: 115vh;
+main {
+  min-height: 105vh;
   overflow: hidden;
   display: block;
   position: relative;
-  padding-bottom: 200px;
+  padding-bottom: 185px;
 }
 
 .title-heading {

@@ -15,6 +15,14 @@ export default class CartSummary extends React.Component {
     this.resetState = this.resetState.bind(this);
   }
 
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.cart.length !== prevProps.cart.length) window.scrollTo(0, 0);
+  }
+
   confirmDelete(cartItem) {
     const { confirmRemove: { view } } = this.state;
     this.setState({

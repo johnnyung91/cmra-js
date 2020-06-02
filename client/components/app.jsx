@@ -28,6 +28,7 @@ export default class App extends React.Component {
 
   componentDidMount() {
     this.getCartItems();
+    window.scrollTo(0, 0);
   }
 
   setView(name, params) {
