@@ -5,6 +5,7 @@ import ProductDetails from './product-details';
 import CartSummary from './cart-summary';
 import CheckoutForm from './checkout-form';
 import EnterModal from './enter-modal';
+import Footer from './footer';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -129,12 +130,13 @@ export default class App extends React.Component {
 
     return (
       <>
-        <header>
-          <Header cartItemCount={cart} setView={this.setView}/>
-        </header>
+        <Header
+          cartItemCount={cart}
+          setView={this.setView}/>
         <main>
           {main}
         </main>
+        <Footer />
         {modalShowing ? <EnterModal viewModal={this.viewModal}/> : null}
       </>
     );

@@ -57,6 +57,28 @@ h6 {
   cursor: pointer;
 }
 
+.footer-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+}
+
+.footer-logo {
+  width: 100px;
+  position: relative;
+  top: 12px
+}
+
+.footer-text {
+  text-align: center;
+}
+
+.footer-text>* {
+  margin-bottom: 0;
+}
+
 .enter-modal,
 .add-modal,
 .remove-modal {
