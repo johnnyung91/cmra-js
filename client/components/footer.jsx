@@ -8,9 +8,9 @@ export default function Footer(props) {
           <div >
             <div className="footer-center">
               <img src="/images/cmra-logo.png" alt="CMRA" className='footer-logo'/>
-              <div className="footer-text pb-4">
-                <h3>C M R A</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi, nihil?</p>
+              <div className="footer-text pb-2">
+                <span className="footer-header"><h3>C M R A</h3></span>
+                <span className="footer-sub"><p>Elegance in Everything</p></span>
               </div>
             </div>
           </div>

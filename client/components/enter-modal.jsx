@@ -33,8 +33,8 @@ export default class EnterModal extends React.Component {
           <div className="modal-content">
             <div className="modal-header modal-text pb-0">
               <div>
-                <h5 className="modal-title">Welcome to Wicked Sales!</h5>
-                <p>Wicked Sales is a full-stack E-commerce website built using React.js and Node/Express and is to be used <strong>strictly for demonstrative purposes</strong></p>
+                <h5 className="modal-title">Welcome to CMRA!</h5>
+                <p>CMRA is a full-stack E-commerce application built using React.js and Node/Express and is to be used <strong>strictly for demonstrative purposes</strong></p>
               </div>
             </div>
             <div className="modal-body modal-text">
