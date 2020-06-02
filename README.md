@@ -1,5 +1,5 @@
-# wicked-sales-js
-A full stack Node.js and React E-commerce web application.
+# CMRA
+CMRA is a full stack E-commerce web application built using React.js and Node.js/Express.
 
 ## Live Demo
 Try the application live at https://wicked-sales.johnnyungcodes.com/
