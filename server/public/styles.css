@@ -2,6 +2,53 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: "Noto Sans";
+  font-size: 14px;
+  overflow-y: overlay;
+  position: relative;
+  height: 100%;
+}
+
+main {
+  min-height: 105vh;
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-bottom: 192px;
+}
+
+.title-heading {
+  display: flex;
+  align-items: center;
+}
+
+.page-header {
+  font-family: 'Radiance';
+  font-size: 20px;
+  letter-spacing: 0.5rem;
+}
+
+.footer-header {
+  font-family: 'Radiance';
+  font-size: 20px;
+  letter-spacing: 0.3rem;
+}
+
+.footer-sub {
+  font-family: 'Radiance';
+  letter-spacing: 0.1rem;
+}
+
+#image {
+  width: 50px;
+  height: 50px;
+}
+
+.cart {
+  font-size: 20px;
+}
+
 h1,
 h2,
 h3,
@@ -29,6 +76,34 @@ h6 {
 
 .pointer {
   cursor: pointer;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+}
+
+.footer-logo {
+  width: 100px;
+  position: relative;
+  top: 12px
+}
+
+.footer-text {
+  text-align: center;
+}
+
+.footer-text>* {
+  margin-bottom: 0;
 }
 
 .enter-modal,
@@ -89,6 +164,10 @@ h6 {
   position: absolute;
   font-size: 25px;
   right: 6px;
+}
+
+button {
+  font-size: 14px!important;
 }
 
 @keyframes fade-in {

@@ -21,6 +21,7 @@ export default class ProductList extends React.Component {
 
   componentDidMount() {
     this.getProducts();
+    window.scrollTo(0, 0);
   }
 
   render() {

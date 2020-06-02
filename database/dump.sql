@@ -229,79 +229,22 @@ ALTER TABLE ONLY public.products ALTER COLUMN "productId" SET DEFAULT nextval('p
 --
 
 COPY public."cartItems" ("cartItemId", "cartId", "productId", price) FROM stdin;
-1	17	1	2999
-2	18	1	2999
-3	19	1	2999
-4	20	1	2999
-5	21	1	2999
-6	22	1	2999
-7	23	1	2999
-8	24	1	2999
-9	25	1	2999
-10	26	1	2999
-11	27	1	2999
-12	28	1	2999
-13	28	1	2999
-14	28	1	2999
-15	28	1	2999
-16	28	1	2999
-17	28	1	2999
-18	29	1	2999
-19	29	1	2999
-20	29	1	2999
-21	29	1	2999
-22	29	1	2999
-23	29	1	2999
-24	29	1	2999
-25	29	1	2999
-26	29	1	2999
-27	29	1	2999
-28	29	2	2595
-29	29	1	2999
-30	29	1	2999
-31	29	1	2999
-32	29	1	2999
-33	29	1	2999
-34	29	1	2999
-35	29	1	2999
-36	29	2	2595
-37	29	1	2999
-38	29	1	2999
-39	29	1	2999
-40	29	1	2999
-41	29	1	2999
-42	29	1	2999
-43	29	1	2999
-44	29	1	2999
-45	29	1	2999
-46	29	2	2595
-47	29	3	2900
-48	29	1	2999
-49	29	1	2999
-50	29	1	2999
-51	29	1	2999
-52	29	1	2999
-53	29	1	2999
-54	29	1	2999
-55	29	1	2999
-56	29	1	2999
-57	29	1	2999
-58	29	1	2999
-59	29	1	2999
-60	29	1	2999
-61	29	1	2999
-62	29	2	2595
-63	29	3	2900
-64	29	4	999
-65	29	1	2999
-66	29	1	2999
-67	29	2	2595
-68	30	1	2999
-69	30	2	2595
-70	30	3	2900
-71	30	4	999
-72	30	5	9900
-73	30	6	830
+75	46	2	2595
+76	31	1	2999
+78	32	2	2595
+79	32	1	2999
+80	32	3	2900
+87	32	1	2999
+88	32	1	2999
+89	32	1	2999
+90	32	1	2999
+91	32	1	2999
+92	32	1	2999
+93	32	1	2999
+94	32	1	2999
+95	32	1	2999
+96	32	2	2595
+97	32	1	2999
 \.
 
 
@@ -340,6 +283,9 @@ COPY public.carts ("cartId", "createdAt") FROM stdin;
 28	2020-04-25 20:18:02.783106+00
 29	2020-04-26 00:40:05.227165+00
 30	2020-04-26 18:51:28.629893+00
+31	2020-05-30 09:44:05.471163+00
+32	2020-05-31 04:47:46.19824+00
+33	2020-06-02 02:17:22.801413+00
 \.
 
 
@@ -356,12 +302,18 @@ COPY public.orders ("orderId", "cartId", name, "creditCard", "shippingAddress", 
 --
 
 COPY public.products ("productId", name, price, image, "shortDescription", "longDescription") FROM stdin;
-1	Shake Weight	2999	/images/shake-weight.jpg	Dynamic Inertia technology ignites muscles in arms, shoulders, and chest.	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock\\n.Aesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
-2	ShamWow	2595	/images/shamwow.jpg	It's like a chamois, towel, and sponge, all in one! Soaks up to 10x it's weight in any liquid!	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock\\n.Aesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
-3	Snuggie	2900	/images/snuggie.jpg	Super-Soft Fleece with pockets! One Size fits all Adults! Keeps you Warm & Your Hands-Free!	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock\\n.Aesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
-4	Wax Vac	999	/images/wax-vac.jpg	Gentle way to remove ear wax. Safe and hygienic. Reduces the risk of painful infections.	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock\\n.Aesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
-5	Ostrich Pillow	9900	/images/ostrich-pillow.jpg	Create your own snugly space in the world and feel-good anywhere with the ultimate cocoon pillow.	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock\\n.Aesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
-6	Tater Mitts	830	/images/tater-mitts.jpg	8 Seconds is all you need with Tater Mitts. Quickly and easily prepare all your favorite potato dishes with Tater Mitts.	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock\\n.Aesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
+4	Nikon 20mm f/1.8G AF-S ED NIKKOR Lens	64995	/images/nikkor20mm.jpg	Widen your creative potential with Nikon's fastest wide-angle lens yet. Capture everything from landscapes, skyscapes and architecture to wedding parties, family portraits, stage events and more - indoors or outdoors.	With the ultra-wide view of a 20mm lens, you're free to capture expansive landscapes and architecture, wedding parties, an entire band on stage, crowd shots and much more. Add low-light capabilities to that view, and the shooting possibilities are nearly endless. Introducing the AF-S NIKKOR 20mm f/1.8G ED, a compact, lightweight FX-format lens that combines the ultra-wide perspective of a 20mm focal length, the low-light capabilities and shallow depth of field of an f/1.8 maximum aperture and the superb optical characteristics of an advanced NIKKOR prime lens. Whether you shoot stills, HD video, time lapse sequences or star trail images on an FX- or DX-format D-SLR, the AF-S NIKKOR 20mm f/1.8G ED will widen your creative potential.
+5	Nikon 50mm f/1.8G AF-S NIKKOR Lens	14995	/images/nikkor50mm.jpg	This updated classic with a fast maximum aperture is ideal for everyday shooting, perfect in low lighting situations and great for producing images with beautiful background blur (Bokeh).	A must-have for standard portraits and everyday use, the AF-S NIKKOR 50mm f/1.8G is a lens that will absolutely surprise you. The 50mm focal length (75mm equivalent on DX format cameras) with a fast f/1.8 aperture allows you to capture stunning images with a shallow depth-of-field, letting your subjects stand out from their backgrounds. The AF-S NIKKOR 50mm f/1.8G may soon become your new favorite lens.
+6	Nikon 85mm f/1.8G AF-S FX NIKKOR Lens	39995	/images/nikkor85mm.jpg	Updated and optimized for digital, this fast aperture compact medium telephoto FX-format portrait lens offers crisp and natural image reproduction for stills and HD video.	Designed for use on Nikon's FX-format D-SLR cameras, this updated medium telephoto f/1.8 lens is great for shooting stills or HD videos. The AF-S NIKKOR 85mm f/1.8G features Nikon's Internal Focus (IF) system providing fast and quiet AF and produces sharp and clear images at all apertures. Its fast maximum aperture is ideal for taking stills or HD videos under ideal lighting, in low light, head and shoulder portraiture, weddings or concerts. When mounted on a DX-format D-SLR, the AF-S NIKKOR 85mm f/1.8G has an effective field of view of 127mm.
+7	Nikon 14-24mm f/2.8G ED-IF AF-S NIKKOR Lens	115095	/images/nikkor1424mm.jpg	Fast aperture, high-performance, ultra-wide-angle zoom optimized for FX- and DX-format sensors featuring Nikon's exclusive ED Glass and Nano Crystal Coat.	With a fast fixed maximum aperture of f/2.8, the award-winning AF-S NIKKOR 14-24mm f/2.8G ED delivers truly superlative performance in any situation. Nikon's exclusive lens technologies and innovations in optical design deliver outstanding sharpness, color and contrast, even in backlit conditions. Tough, reliable, simply exceptional - this is essential glass for serious photographers who demand the best photos and HD videos.
+8	Nikon 24-70mm f/2.8G ED-IF AF-S NIKKOR Lens	125095	/images/nikkor2470mm.jpg	The evolution of a legendary workhorse; a lens capable of taking your work to the next level. Pair it with a Nikon full-frame high-resolution DSLR to capture the decisive moment with a thrilling balance of sharpness and soft blur effects.	Super steady and always ready, the AF-S NIKKOR 24-70mm f/2.8E ED VR workhorse is prepared to take your work to the next level. With up to 4 stops* of VR (Vibration Reduction) image stabilization, you can capture sharp, steady handheld stills and HD videos, and shoot at slower shutter speeds in low-light situations without sacrificing sharpness. Pair it with a Nikon full-frame high-resolution DSLR to capture the decisive moment with a thrilling balance of sharpness and soft blur effects. Covering the sweet spot of the zoom range with a fast f/2.8 constant aperture, you'll be ready for everything from environmental portraits, studio photography, landscape, architecture (exteriors and interiors), press events and weddings.
+9	Nikon 70-200mm f/2.8E FL ED VR AF-S NIKKOR Lens	159995	/images/nikkor70200mm.jpg	The new benchmark for fast telephoto zoom lenses, and a powerhouse for low-light, sports, wildlife, concerts, weddings, portraits and everyday shooting.	For years, Nikon's 70-200 f/2.8 lens has been the benchmark for fast telephoto zoom lenses, unrivaled for low-light, sports, wildlife, concerts, weddings, portraits and everyday shooting. This new version takes that legendary performance to the next level with the same jaw-dropping image quality that has made it a prized lens of pros and serious hobbyists alike. Whether you're shooting a DX DSLR like the D500 or an FX powerhouse like the D5, the AF-S NIKKOR 70-200mm f/2.8E FL ED VR will take you to thrilling new heights.
+3	Nikon D6 DSLR Body	559995	/images/nikond6.jpg	Featuring Nikon's most powerful AF system to date for capturing every heart-pounding, pivotal moment, Nikon's new FX flagship is an uncompromising workhorse DSLR that lives up to every professional demand in any environment.	Captivating imaging power, astonishing speed, dazzling low light performance and extreme durability - all paired with the most powerful AF in Nikon's history. Tough enough for the most demanding professional environments, both in the field and in the studio. Sports and action shots with exceptional focus where it matters. Fast and reliable 14fps continuous shooting. Stunningly clean image quality that shines in any light. Remoteless long exposures. Crucial workflow enhancements for the modern age. The Nikon D6 will redefine the way you work.
+2	Nikon D850 DSLR Body	279995	/images/nikond850.jpg	The Nikon D850 is a professional-grade full-frame digital single-lens reflex camera (DSLR) produced by Nikon. 	Welcome to the next frontier of extreme-resolution photography. Powered by its Nikon-designed full frame back-side illuminated (BSI) image sensor with no optical low-pass filter, the D850 delivers 45.7 megapixels of pure resolution across a staggering dynamic range and at speeds up to 9 FPS. With remarkable advancements across the board - autofocus, dynamic range, sensitivity, Speedlight control, battery life, shutter and mirror drive mechanisms, Silent Photography in Live-View mode, focus shift capability and more this is quite possibly the most impressive, well-rounded DSLR yet.
+10	MeFOTO RoadTrip Classic Leather Edition - CF	34995	/images/mefoto-rt-leather.jpg	Sleek, sturdy, and now with a classic leather finish! A mid-sized classic carbon fiber tripod capable of supporting a full-frame DSLR and telephoto lens.	The titanium RoadTrip Classic Leather Edition Tripod from MeFOTO is a 3.7 lb support with carbon fiber legs that reverse-fold to become a compact 15.4" for transport. With the legs in a normal position you can turn the twist-locks, extend the center column and each of the 5-leg sections, so the tripod can reach a maximum height of 61.8". Moreover, each leg has a double stitched Italian leather hand grip, which makes it comfortable to hold and adds a level of protection to the legs.
+11	Nikon SB-700 TTL AF Speedlight Flash	29995	/images/nksb700.jpg	High performance versatile Speedlight brings simplicity to on-camera, remote, and multiple flash photography.	The i-TTL-optimized SB-700 offers the perfect balance of exposure, performance and portability for any photographer on the go. It's flexible flash head provides creative lighting freedom for nearly any subject. Achieve brilliant results and seamless lighting system integration with hot shoe operation or wirelessly as a master, commander or remote light source.
+12	Nikon ML-L3 IR Remote Control Transmitter	1295	/images/nkmll3.jpg	Enables wireless remote shutter release. Trigger the shutter remotely when using slower shutter speeds to prevent camera movement.	The Nikon ML-L3 Wireless Remote Control is a wireless shutter release capable of instantly triggering the shutter of select Nikons, without disturbing the camera, up to a distance of approximately 16' (4.87 m) in front of the camera. The remote can work from behind the camera as well, however its range is not as long. It is recommended for taking pictures of subjects that are difficult to approach, or to minimize vibration for close-ups and time exposure, and it is powered by a CR-2025 3v battery. The ML-L3 supports the bulb exposure camera setting making it a worthwhile accessory for shooting long time exposures for low-light photography or unusual daylight effects.
+1	Nikon D780 DSLR Body	169995	/images/nikond780.jpg	Capture incredible shots and 4K video with Nikon's FX Advanced Entry Model, the D780	For those who express themselves without labels, the D780 is capable of bringing every spectacular vision to life and inspiring completely new ways to create. Versatility through the splendor of full frame photography and 4K video, slow motion, time-lapse, remoteless long exposures and a host of impactful creative shooting tools to keep inspiration flowing. Agility through major technological enhancements like a 180K-pixel Advanced Scene Recognition System, superb phase-detect autofocusing in photo and video and easy wireless image transfer to keep up with every creative demand. The D780 is a creator's dream come true. And as the successor to the expectation-shattering D750, it's a serious upgrade in terms of speed, image processing, video capability, autofocus performance and so much more.
 \.
 
 
@@ -369,14 +321,14 @@ COPY public.products ("productId", name, price, image, "shortDescription", "long
 -- Name: cartItems_cartItemId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 73, true);
+SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 100, true);
 
 
 --
 -- Name: carts_cartId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."carts_cartId_seq"', 30, true);
+SELECT pg_catalog.setval('public."carts_cartId_seq"', 33, true);
 
 
 --

@@ -13,6 +13,7 @@ export default class ProductDetails extends React.Component {
   }
 
   componentDidMount() {
+    window.scrollTo(0, 0);
     const { productId } = this.props.params;
     fetch(`api/products/${productId}`)
       .then(res => res.json())
@@ -40,7 +41,7 @@ export default class ProductDetails extends React.Component {
     if (!product) {
       return null;
     } else {
-      const currency = (product.price / 100).toFixed(2);
+      const currency = parseFloat((product.price / 100).toFixed(2));
       return (
         <>
           {itemAdded ? <AddItemModal product={product} setView={setView} closeModal={this.closeModal}/> : null}
@@ -62,7 +63,7 @@ export default class ProductDetails extends React.Component {
                 <div className="col-lg-7 pb-3 d-flex align-items-center">
                   <div>
                     <h3>{product.name}</h3>
-                    <p className="text-muted">${currency}</p>
+                    <p className="text-muted">${currency.toLocaleString('en')}</p>
                     <p>{product.shortDescription}</p>
                     <button
                       type="button"
