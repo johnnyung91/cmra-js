@@ -37,11 +37,6 @@ h6 {
   margin: 0;
 }
 
-.container {
-  padding-left: 0;
-  padding-right: 0;
-}
-
 .fit {
   object-fit: contain;
   width: 100%;
