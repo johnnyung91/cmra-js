@@ -49,7 +49,7 @@ export default class CheckoutForm extends React.Component {
 
     return (
       <div className="container py-5 px-0">
-        <div className="container p4">
+        <div className="container p-4">
           <div className="d-inline-block pb-3 pointer d-" onClick={() => setView('cart', {})}>
             <p>
               <i className="fas fa-arrow-left pr-2"></i>

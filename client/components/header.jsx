@@ -6,11 +6,10 @@ export default class Header extends React.Component {
 
     return (
       <div className="navbar-dark bg-dark shadow py-2">
-        <div className="container d-flex justify-content-between py-2">
+        <div className="container d-flex justify-content-between align-items-center py-2">
           <div className="title-heading text-light pointer" onClick={() => setView('catalog', {})}>
-            <h5>
-              <i className="fas fa-camera mr-2"></i><span className="page-header">C M R A</span>
-            </h5>
+            <img src="/images/cmra-logo.png" alt="" srcSet="" id='image'/>
+            <span className="page-header ml-1">CMRA</span>
           </div>
           <div className="cart-heading text-light pointer" onClick={() => setView('cart', {})}>
             <h6>
