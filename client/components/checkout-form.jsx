@@ -53,7 +53,7 @@ export default class CheckoutForm extends React.Component {
     const currency = parseFloat(totalPrice.toFixed(2)).toLocaleString('en');
 
     return (
-      <div className="container py-5 px-0">
+      <div className="container py-5 px-0 fade-in">
         <div className="container p-4">
           <div className="d-inline-block pb-3 pointer d-" onClick={() => setView('cart', {})}>
             <p>

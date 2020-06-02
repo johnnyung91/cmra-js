@@ -15,7 +15,7 @@ main {
   overflow: hidden;
   display: block;
   position: relative;
-  padding-bottom: 185px;
+  padding-bottom: 192px;
 }
 
 .title-heading {
@@ -164,6 +164,10 @@ footer {
   position: absolute;
   font-size: 25px;
   right: 6px;
+}
+
+button {
+  font-size: 14px!important;
 }
 
 @keyframes fade-in {
