@@ -70,7 +70,7 @@ h6 {
 }
 
 .product:hover {
-  transform: translateY(-7px);
+  transform: translateY(-5px);
   box-shadow: 0 5px 10px -7px #1c1c1c;
 }
 
