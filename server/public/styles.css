@@ -232,6 +232,10 @@ button {
   font-size: 14px !important;
 }
 
+.submit-row p {
+  margin: 0;
+}
+
 @keyframes fade-in {
   0% {
     opacity: 0;

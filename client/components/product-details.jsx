@@ -75,6 +75,7 @@ export default class ProductDetails extends React.Component {
                 </div>
               </div>
               <div>
+                <h5>Description</h5>
                 <p>{product.longDescription}</p>
               </div>
             </div>
