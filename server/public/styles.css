@@ -222,6 +222,12 @@ footer {
   right: 6px;
 }
 
+.details-text>:not(:last-child),
+.card-text-section>:not(:last-child),
+.cart-item-text>:not(:last-child) {
+  margin-bottom: 16px;
+}
+
 button {
   font-size: 14px !important;
 }
