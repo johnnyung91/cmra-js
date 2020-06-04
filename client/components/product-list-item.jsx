@@ -12,9 +12,9 @@ function ProductListItem(props) {
           src={product.image}
           alt={product.name}
         />
-        <div className="card-body py-0">
+        <div className="card-body py-0 card-text-section">
           <h5 className="card-title">{product.name}</h5>
-          <p className="card-text text-muted">${currency.toLocaleString('en')}</p>
+          <h6 className="card-text text-muted">${currency.toLocaleString('en')}</h6>
           <p className="card-text">{product.shortDescription}</p>
         </div>
       </div>
