@@ -9,14 +9,24 @@ export default function Carousel(props) {
         <li data-target="#carousel" data-slide-to="2"></li>
       </ol>
       <div className="carousel-inner">
-        <div className="carousel-item active slide">
-          <div className="carousel-image slide-1"></div>
+        <div className="carousel-item active slide-1">
+          <div className="carousel-caption carousel-text">
+            <h5>Elegance in Everything</h5>
+            <p>The perfect gear to capture the perfect moments</p>
+          </div>
         </div>
-        <div className="carousel-item slide">
-          <div className="carousel-image slide-2"></div>
+        <div className="carousel-item slide-2">
+          <div className="carousel-caption carousel-text">
+            <h5>Authencity You Can Trust</h5>
+            <p>CMRA is an authorized dealer for Nikon and MeFoTo</p>
+          </div>
         </div>
-        <div className="carousel-item slide">
-          <div className="carousel-image slide-3"></div>
+        <div className="carousel-item slide-3">
+          <div className="overlay"></div>
+          <div className="carousel-caption carousel-text">
+            <h5>For Photographers, By Photographers</h5>
+            <p>Built by fellow photographers, with customer cervice with you in mind</p>
+          </div>
         </div>
       </div>
       <a className="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
