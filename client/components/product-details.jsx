@@ -62,7 +62,7 @@ export default class ProductDetails extends React.Component {
                 </div>
                 <div className="col-lg-7 pb-3 d-flex align-items-center">
                   <div className='details-text'>
-                    <h4>{product.name}</h4>
+                    <h5>{product.name}</h5>
                     <h6 className="text-muted">${currency.toLocaleString('en')}</h6>
                     <p>{product.shortDescription}</p>
                     <button
