@@ -65,7 +65,7 @@ export default class CheckoutForm extends React.Component {
             <h3 className="mb-4">My Cart</h3>
             <h5 className="mb-4">Order Total: <span className="text-secondary">{currency}</span></h5>
           </div>
-          <form onSubmit={this.handleSubmit}>
+          <form onSubmit={this.handleSubmit} className="pb-3" id="checkout-form">
             <div className="form-group">
               <label>Name</label>
               <input
@@ -94,17 +94,25 @@ export default class CheckoutForm extends React.Component {
                 onChange={this.handleChange}>
               </textarea>
             </div>
-            <div className="row justify-content-between p-3">
-              <div className="pb-3 pointer" onClick={() => setView('catalog', {})}>
-                <p><i className="fas fa-arrow-left pr-2"></i>Continue Shopping</p>
-              </div>
-              <div>
-                <button type="submit" className="btn btn-primary">
-                  Place Order
-                </button>
-              </div>
+            <div className="form-check">
+              <input required className="form-check-input" type="checkbox" id="accept-box"/>
+              <label className="form-check-label" htmlFor="accept-box">
+                I acknowledge that this submission is for demonstrative purposes.  I understand that no real purchases and payment processing will be made.
+                <br/>
+                By checking this box, I understand that no real personal information such as names, addresses, and credit card numbers should not be used.
+              </label>
             </div>
           </form>
+          <div className="row align-items-center justify-content-between p-3 submit-row">
+            <div className="pointer" onClick={() => setView('catalog', {})}>
+              <p><i className="fas fa-arrow-left pr-2"></i>Continue Shopping</p>
+            </div>
+            <div>
+              <button type="submit" className="btn btn-primary" form="checkout-form">
+                  Place Order
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     );
