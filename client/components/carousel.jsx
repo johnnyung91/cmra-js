@@ -25,7 +25,7 @@ export default function Carousel(props) {
           <div className="overlay"></div>
           <div className="carousel-caption carousel-text">
             <h5>For Photographers, By Photographers</h5>
-            <p>Built by fellow photographers, with customer cervice with you in mind</p>
+            <p>Customer service you can depend on, from one photographer to another</p>
           </div>
         </div>
       </div>
