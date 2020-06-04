@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Carousel(props) {
   return (
-    <div id="carousel" className="carousel slide" data-ride="carousel">
+    <div id="carousel" className="carousel slide fade-in" data-ride="carousel">
       <ol className="carousel-indicators">
         <li data-target="#carousel" data-slide-to="0" className="active"></li>
         <li data-target="#carousel" data-slide-to="1"></li>
@@ -10,13 +10,13 @@ export default function Carousel(props) {
       </ol>
       <div className="carousel-inner">
         <div className="carousel-item active slide">
-          <img className="d-block w-100 carousel-image" src="./images/slide1.jpeg" alt="First slide"/>
+          <div className="carousel-image slide-1"></div>
         </div>
         <div className="carousel-item slide">
-          <img className="d-block w-100 carousel-image" src="./images/slide2.jpeg" alt="Second slide"/>
+          <div className="carousel-image slide-2"></div>
         </div>
         <div className="carousel-item slide">
-          <img className="d-block w-100 carousel-image" src="./images/slide3.jpeg" alt="Third slide"/>
+          <div className="carousel-image slide-3"></div>
         </div>
       </div>
       <a className="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
