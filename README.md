@@ -24,7 +24,7 @@ Try the application live at https://cmra.johnnyungcodes.com/
 - Mobile Responsive: compatible in portrait and landscape mode for iPhone 6/7/8 and iPad
 
 ## Preview
-![cmra-preview](./server/public/images/wicked-sales-preview.gif)
+![cmra-preview](./server/public/images/cmra-preview.png)
 
 ## Development
 

@@ -3,7 +3,7 @@ import React from 'react';
 export default function Footer(props) {
   return (
     <footer>
-      <div className="navbar-dark bg-dark shadow">
+      <div className="navbar-dark dark shadow">
         <div className="container d-flex justify-content-center align-items-center py-2">
           <div >
             <div className="footer-center">

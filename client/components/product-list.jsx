@@ -1,5 +1,6 @@
 import React from 'react';
 import ProductListItem from './product-list-item';
+import Carousel from './carousel';
 
 export default class ProductList extends React.Component {
   constructor(props) {
@@ -28,21 +29,24 @@ export default class ProductList extends React.Component {
     const { products } = this.state;
     const { setView } = this.props;
     return (
-      <div className="container py-5 fade-in">
-        <div className="row">
-          {
-            products.map(product => {
-              return (
-                <ProductListItem
-                  key={product.productId}
-                  product={product}
-                  setView={setView}
-                />
-              );
-            })
-          }
+      <>
+        <Carousel />
+        <div className="container fade-in">
+          <div className="row py-5">
+            {
+              products.map(product => {
+                return (
+                  <ProductListItem
+                    key={product.productId}
+                    product={product}
+                    setView={setView}
+                  />
+                );
+              })
+            }
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 
