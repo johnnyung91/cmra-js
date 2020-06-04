@@ -113,7 +113,7 @@ h6 {
   font-size: 16px;
 }
 
-.carousel-text>h5 {
+.carousel-text > h5 {
   margin-bottom: 10px;
 }
 .product {
@@ -222,9 +222,9 @@ footer {
   right: 6px;
 }
 
-.details-text>:not(:last-child),
-.card-text-section>:not(:last-child),
-.cart-item-text>:not(:last-child) {
+.details-text > :not(:last-child),
+.card-text-section > :not(:last-child),
+.cart-item-text > :not(:last-child) {
   margin-bottom: 16px;
 }
 

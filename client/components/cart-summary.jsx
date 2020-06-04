@@ -48,7 +48,7 @@ export default class CartSummary extends React.Component {
     const totalPrice = cart.reduce((max, cur) => {
       return max + cur.price;
     }, 0) / 100;
-    const currency = parseFloat(totalPrice.toFixed(2)).toLocaleString('en');
+    const currency = parseFloat(totalPrice).toLocaleString('en', { style: 'currency', currency: 'USD' });
 
     const empty = <h4>Your Shopping Cart is empty</h4>;
     const items = cart.map(cartItem => {
@@ -84,7 +84,7 @@ export default class CartSummary extends React.Component {
             <div className="container d-flex justify-content-between align-items-center px-0">
               <div>
                 <h5>
-                Cart Total: <span className="text-secondary">${currency}</span>
+                Cart Total: <span className="text-secondary">{currency}</span>
                 </h5>
               </div>
               {cart.length === 0 ? null : checkoutButton}

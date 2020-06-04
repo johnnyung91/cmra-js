@@ -50,7 +50,7 @@ export default class CheckoutForm extends React.Component {
     const totalPrice = cart.reduce((max, cur) => {
       return max + cur.price;
     }, 0) / 100;
-    const currency = parseFloat(totalPrice.toFixed(2)).toLocaleString('en');
+    const currency = parseFloat(totalPrice).toLocaleString('en', { style: 'currency', currency: 'USD' });
 
     return (
       <div className="container py-5 px-0 fade-in">
@@ -63,7 +63,7 @@ export default class CheckoutForm extends React.Component {
           </div>
           <div>
             <h3 className="mb-4">My Cart</h3>
-            <h5 className="mb-4">Order Total: <span className="text-secondary">${currency}</span></h5>
+            <h5 className="mb-4">Order Total: <span className="text-secondary">{currency}</span></h5>
           </div>
           <form onSubmit={this.handleSubmit}>
             <div className="form-group">
