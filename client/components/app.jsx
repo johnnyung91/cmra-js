@@ -6,15 +6,12 @@ import CartSummary from './cart-summary';
 import CheckoutForm from './checkout-form';
 import EnterModal from './enter-modal';
 import Footer from './footer';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      view: {
-        name: 'catalog',
-        params: {}
-      },
       cart: [],
       modalShowing: true
     };
@@ -120,25 +117,32 @@ export default class App extends React.Component {
   }
 
   render() {
-    const { name, params } = this.state.view;
+    // const { name, params } = this.state.view;
     const { cart, modalShowing } = this.state;
 
-    let main;
-    if (name === 'catalog') main = <ProductList setView={this.setView}/>;
-    if (name === 'details') main = <ProductDetails params={params} setView={this.setView} addToCart={this.addToCart}/>;
-    if (name === 'cart') main = <CartSummary cart={cart} setView={this.setView} removeFromCart={this.removeFromCart}/>;
-    if (name === 'checkout') main = <CheckoutForm cart={cart} placeOrder={this.placeOrder} setView={this.setView}/>;
+    // let main;
+    // if (name === 'catalog') main = <ProductList setView={this.setView}/>;
+    // if (name === 'details') main = <ProductDetails params={params} setView={this.setView} addToCart={this.addToCart}/>;
+    // if (name === 'cart') main = <CartSummary cart={cart} setView={this.setView} removeFromCart={this.removeFromCart}/>;
+    // if (name === 'checkout') main = <CheckoutForm cart={cart} placeOrder={this.placeOrder} setView={this.setView}/>;
 
     return (
       <>
-        <Header
-          cartItemCount={cart}
-          setView={this.setView}/>
-        <main>
-          {main}
-        </main>
-        <Footer />
-        {modalShowing ? <EnterModal viewModal={this.viewModal}/> : null}
+        <Router>
+          <Header
+            cartItemCount={cart}
+            setView={this.setView}/>
+          <main>
+            <Switch>
+              <Route path="/" render={props => <ProductList {...props} />}/>
+              <Route path="/product/:productId" render={props => <ProductDetails {...props} addToCart={this.addToCart}/> }/>
+              <Route path="/cart" render={props => <CartSummary {...props} cart={cart} removeFromCart={this.removeFromCart}/>} />
+              <Route path="/checkout" render={props => <CheckoutForm {...props} cart={cart} placeOrder={this.placeOrder} />}/>
+            </Switch>
+          </main>
+          <Footer />
+          {modalShowing ? <EnterModal viewModal={this.viewModal}/> : null}
+        </Router>
       </>
     );
   }
