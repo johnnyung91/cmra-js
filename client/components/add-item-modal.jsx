@@ -1,6 +1,7 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
-export default class AddItemModal extends React.Component {
+class AddItemModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,7 +23,6 @@ export default class AddItemModal extends React.Component {
   }
 
   render() {
-    const { setView } = this.props;
     const { showModal } = this.state;
     const fade = showModal ? 'fade-in' : 'fade-out';
     const slide = showModal ? 'slide-in' : 'slide-out';
@@ -48,7 +48,7 @@ export default class AddItemModal extends React.Component {
                 <button
                   type="button"
                   className="btn btn-secondary btn-block close-modal"
-                  onClick={() => setView('catalog', {})}>
+                  onClick={() => this.props.history.push('/')}>
                   Continue Shopping
                 </button>
               </div>
@@ -56,7 +56,7 @@ export default class AddItemModal extends React.Component {
                 <button
                   type="button"
                   className="btn btn-primary btn-block close-modal"
-                  onClick={() => setView('cart', {})}>
+                  onClick={() => this.props.history.push('/cart')}>
                   View Cart
                 </button>
               </div>
@@ -67,3 +67,5 @@ export default class AddItemModal extends React.Component {
     );
   }
 }
+
+export default withRouter(AddItemModal);

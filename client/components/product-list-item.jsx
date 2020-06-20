@@ -1,11 +1,12 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 function ProductListItem(props) {
-  const { product, setView } = props;
+  const { product } = props;
   const currency = parseFloat((product.price / 100).toFixed(2));
 
   return (
-    <div className="col-md-6 col-lg-4 mb-4" onClick={() => setView('details', product.productId)}>
+    <div className="col-md-6 col-lg-4 mb-4" onClick={() => props.history.push(`/product/${product.productId}`)}>
       <div className="card mb-4 product pointer">
         <img
           className="card-img-top py-3 fit"
@@ -22,4 +23,4 @@ function ProductListItem(props) {
   );
 }
 
-export default ProductListItem;
+export default withRouter(ProductListItem);
