@@ -236,6 +236,10 @@ button {
   margin: 0;
 }
 
+.long-description h5 {
+  margin-bottom: 16px;
+}
+
 @keyframes fade-in {
   0% {
     opacity: 0;

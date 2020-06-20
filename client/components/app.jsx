@@ -109,8 +109,7 @@ export default class App extends React.Component {
       <>
         <Router>
           <Header
-            cartItemCount={cart}
-            setView={this.setView}/>
+            cartItemCount={cart}/>
           <main>
             <Switch>
               <Route path="/product/:productId" render={props => <ProductDetails {...props} addToCart={this.addToCart}/> }/>
