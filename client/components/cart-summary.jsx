@@ -1,8 +1,9 @@
 import React from 'react';
 import CartSummaryItem from './cart-summary-item';
 import RemoveModal from './remove-item-modal';
+import { withRouter } from 'react-router-dom';
 
-export default class CartSummary extends React.Component {
+class CartSummary extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -43,7 +44,7 @@ export default class CartSummary extends React.Component {
   }
 
   render() {
-    const { cart, setView, removeFromCart } = this.props;
+    const { cart, removeFromCart } = this.props;
     const { confirmRemove: { view, product } } = this.state;
     const totalPrice = cart.reduce((max, cur) => {
       return max + cur.price;
@@ -63,7 +64,7 @@ export default class CartSummary extends React.Component {
 
     const checkoutButton =
       <div>
-        <button type="button" className="btn btn-primary" onClick={() => setView('checkout', {})}>Checkout</button>
+        <button type="button" className="btn btn-primary" onClick={() => this.props.history.push('/checkout')}>Checkout</button>
       </div>
     ;
 
@@ -72,7 +73,7 @@ export default class CartSummary extends React.Component {
         {view ? <RemoveModal product={product} removeFromCart={removeFromCart} resetState={this.resetState}/> : null}
         <div className="container py-5 px-0 fade-in">
           <div className="container">
-            <div className="d-inline-block pb-3 pointer" onClick={() => setView('catalog', {})}>
+            <div className="d-inline-block pb-3 pointer" onClick={() => this.props.history.push('/')}>
               <p><i className="fas fa-arrow-left pr-2"></i>Back to Catalog</p>
             </div>
             <div>
@@ -95,3 +96,5 @@ export default class CartSummary extends React.Component {
     );
   }
 }
+
+export default withRouter(CartSummary);

@@ -1,6 +1,7 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
-export default class CheckoutForm extends React.Component {
+class CheckoutForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -43,10 +44,11 @@ export default class CheckoutForm extends React.Component {
       creditCard: '',
       shippingAddress: ''
     });
+    this.props.history.push('/');
   }
 
   render() {
-    const { cart, setView } = this.props;
+    const { cart, history } = this.props;
     const totalPrice = cart.reduce((max, cur) => {
       return max + cur.price;
     }, 0) / 100;
@@ -55,7 +57,7 @@ export default class CheckoutForm extends React.Component {
     return (
       <div className="container py-5 px-0 fade-in">
         <div className="container p-4">
-          <div className="d-inline-block pb-3 pointer d-" onClick={() => setView('cart', {})}>
+          <div className="d-inline-block pb-3 pointer d-" onClick={() => history.push('/cart')}>
             <p>
               <i className="fas fa-arrow-left pr-2"></i>
                 Back to Cart
@@ -104,7 +106,7 @@ export default class CheckoutForm extends React.Component {
             </div>
           </form>
           <div className="row align-items-center justify-content-between p-3 submit-row">
-            <div className="pointer" onClick={() => setView('catalog', {})}>
+            <div className="pointer" onClick={() => history.push('/')}>
               <p><i className="fas fa-arrow-left pr-2"></i>Continue Shopping</p>
             </div>
             <div>
@@ -118,3 +120,5 @@ export default class CheckoutForm extends React.Component {
     );
   }
 }
+
+export default withRouter(CheckoutForm);

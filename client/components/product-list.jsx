@@ -27,7 +27,6 @@ export default class ProductList extends React.Component {
 
   render() {
     const { products } = this.state;
-    const { setView } = this.props;
     return (
       <>
         <Carousel />
@@ -39,7 +38,6 @@ export default class ProductList extends React.Component {
                   <ProductListItem
                     key={product.productId}
                     product={product}
-                    setView={setView}
                   />
                 );
               })

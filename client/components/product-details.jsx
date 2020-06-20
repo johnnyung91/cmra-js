@@ -14,12 +14,10 @@ export default class ProductDetails extends React.Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
-    const { productId } = this.props.params;
-    fetch(`api/products/${productId}`)
+    const { productId } = this.props.match.params;
+    fetch(`/api/products/${productId}`)
       .then(res => res.json())
-      .then(data => {
-        this.setState({ product: data });
-      })
+      .then(data => this.setState({ product: data }))
       .catch(err => console.error(err));
   }
 
@@ -36,7 +34,6 @@ export default class ProductDetails extends React.Component {
 
   render() {
     const { product, itemAdded } = this.state;
-    const { setView } = this.props;
 
     if (!product) {
       return null;
@@ -44,10 +41,10 @@ export default class ProductDetails extends React.Component {
       const currency = parseFloat((product.price / 100).toFixed(2));
       return (
         <>
-          {itemAdded ? <AddItemModal product={product} setView={setView} closeModal={this.closeModal}/> : null}
+          {itemAdded ? <AddItemModal product={product} closeModal={this.closeModal}/> : null}
           <div className="container py-5 fade-in">
             <div className="container p-4 border rounded-lg shadow">
-              <div className="d-inline-block pb-3 pointer d-" onClick={() => setView('catalog', {})}>
+              <div className="d-inline-block pb-3 pointer d-" onClick={() => this.props.history.push('/')}>
                 <p>
                   <i className="fas fa-arrow-left pr-2"></i>
                 Back to Catalog
@@ -74,7 +71,7 @@ export default class ProductDetails extends React.Component {
                   </div>
                 </div>
               </div>
-              <div>
+              <div className="long-description">
                 <h5>Description</h5>
                 <p>{product.longDescription}</p>
               </div>
